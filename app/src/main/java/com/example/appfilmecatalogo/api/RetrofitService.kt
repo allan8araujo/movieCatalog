@@ -21,7 +21,7 @@ interface RetrofitService {
             retrofit.create(RetrofitService::class.java)
         }
 
-        fun getInstance():RetrofitService{
+        fun getInstance(): RetrofitService {
             return retrofitService
         }
     }
