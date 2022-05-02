@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">appFilmeCatalogo</string>
+    <string name="movies">MOVIES</string>
+    <string name="texto_vazio">texto vazio</string>
 </resources>

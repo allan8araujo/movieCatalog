@@ -1,8 +1,8 @@
 package com.example.appfilmecatalogo.models
 
 data class Lives(
-    var page: Long,
-    var results: PopularWeeklyFilms,
-    var total_pages: Long,
-    var total_results: Long
+    val page: Long,
+    val results: List<PopularWeeklyFilms>,
+    val total_pages: Long,
+    val total_results: Long
 )
