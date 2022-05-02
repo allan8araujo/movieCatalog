@@ -12,7 +12,7 @@ Faça um fork deste projeto e quando finalizar a implementação faça um pull r
 As bibliotecas abaixo podem ajuda-lo a lidar com alguns desafios deste projeto.
 
 - Biblioteca para carregamento de imagens https://github.com/square/picasso
-- Biblioteca para requisições http https://github.com/square/retrofit.
+- Biblioteca para requisições http https://github.com/square/retrofit
 
 
 
