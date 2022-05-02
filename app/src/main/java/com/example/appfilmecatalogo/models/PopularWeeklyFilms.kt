@@ -14,5 +14,6 @@ data class PopularWeeklyFilms(
     var title: String,
     var video: Boolean,
     var vote_average: Float,
-    var vote_count: Int
+    var vote_count: Int,
+    var media_type: String
 )
