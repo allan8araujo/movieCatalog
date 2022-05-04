@@ -2,4 +2,5 @@
     <string name="app_name">appFilmeCatalogo</string>
     <string name="movies">MOVIES</string>
     <string name="texto_vazio">texto vazio</string>
+    <string name="img_movie">img_movie</string>
 </resources>

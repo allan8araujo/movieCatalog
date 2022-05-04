@@ -54,10 +54,13 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
-    //ViewModel
+    //lifecycle: ViewModel & runtime:ViewModelScope
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
 
-    //Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    annotationProcessor 'com.google.dagger:hilt-android-compiler:2.33-beta'
+    //Glid
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
 }

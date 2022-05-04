@@ -3,7 +3,7 @@ package com.example.appfilmecatalogo.models
 data class PopularWeeklyFilms(
     val adult: Boolean,
     val backdrop_path: String,// "/tRS6jvPM9qPrrnx2KRp3ew96Yot.jpg",
-    val genre_ids: MutableList<Int>,
+    val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
     val original_title: String,
