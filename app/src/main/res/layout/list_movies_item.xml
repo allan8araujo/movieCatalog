@@ -2,12 +2,14 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#9B72AA"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
 
         <ImageView
             android:id="@+id/image_movie"
@@ -20,12 +22,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:gravity="center"
+            android:textColor="@color/white"
             android:id="@+id/text_movie_title"
             android:textAlignment="center"
             android:hint="@string/texto_vazio"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#99ffffff"
+            android:background="#99B59CBD"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_movie" />
     </androidx.constraintlayout.widget.ConstraintLayout>

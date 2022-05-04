@@ -3,39 +3,32 @@ package com.example.appfilmecatalogo.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.appfilmecatalogo.api.HttpClient
 import com.example.appfilmecatalogo.api.RetrofitService
 import com.example.appfilmecatalogo.databinding.ActivityMainBinding
 import com.example.appfilmecatalogo.models.Lives
-import com.example.appfilmecatalogo.models.PopularWeeklyFilms
-import com.example.appfilmecatalogo.repository.Interceptor
 import com.example.appfilmecatalogo.repository.MovieRepository
 import com.example.appfilmecatalogo.utils.Constants
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModel
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModelFactory
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private val retrofit by lazy {
+
+    private val retrofitInstanceMain by lazy {
         Retrofit.Builder()
-             .client(httpClient)
+            .client(HttpClient.clientInterceptor)
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
     private val movieClient: RetrofitService by lazy {
-        retrofit.create(RetrofitService::class.java)
+        retrofitInstanceMain.create(RetrofitService::class.java)
     }
 
-    private val httpClient by lazy {
-        OkHttpClient
-            .Builder()
-            .addInterceptor(Interceptor())
-            .build()
-    }
 
     private val movieRepository = MovieRepository(movieClient)
     private val movieFactory = MovieViewModelFactory(movieRepository)
@@ -51,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
+        supportActionBar?.hide()
 
         movielistAdapter.onClickListener = { movieId ->
             goToMovieDetails(movieId)
