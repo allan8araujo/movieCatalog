@@ -1,12 +1,14 @@
-package com.example.appfilmecatalogo
+package com.example.appfilmecatalogo.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.appfilmecatalogo.api.RetrofitService
 import com.example.appfilmecatalogo.databinding.ActivityMainBinding
 import com.example.appfilmecatalogo.models.Lives
+import com.example.appfilmecatalogo.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.repository.Interceptor
 import com.example.appfilmecatalogo.repository.MovieRepository
 import com.example.appfilmecatalogo.utils.Constants
@@ -17,7 +19,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-
     private val retrofit by lazy {
         Retrofit.Builder()
             // .client(httpClient)
@@ -36,9 +37,9 @@ class MainActivity : AppCompatActivity() {
             .build()
     }
 
-    private val movieRepository=MovieRepository(movieClient)
-    private val movieFactory= MovieViewModelFactory(movieRepository)
-    private val movieViewModel by viewModels<MovieViewModel>{movieFactory}
+    private val movieRepository = MovieRepository(movieClient)
+    private val movieFactory = MovieViewModelFactory(movieRepository)
+    private val movieViewModel by viewModels<MovieViewModel> { movieFactory }
 
     private val biding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -60,8 +61,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovieAndObserve() {
         movieViewModel.getAllLives()
-        movieViewModel.movies.observe(this){
-            Lives-> setListAdapter(Lives)
+        movieViewModel.movies.observe(this) { Lives ->
+            setListAdapter(Lives)
         }
     }
 
@@ -71,8 +72,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToMovieDetails(movieId: Int) {
         val intent = Intent(this, MovieDetailsActivity::class.java)
+        val movieSelected = movieViewModel.movies.value?.results?.find { PopularWeeklyFilms ->
+            PopularWeeklyFilms.id == movieId
+        }
+
         intent.putExtra("movieId", movieId)
-//        intent.putExtra("mooviePhoto", moviePhoto)
+        intent.putExtra("movieSelected",movieSelected)
+//        Toast.makeText(this, movieSelected?.backdrop_path, Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }
+
 }

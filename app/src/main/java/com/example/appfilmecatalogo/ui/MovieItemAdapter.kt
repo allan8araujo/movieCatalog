@@ -1,6 +1,5 @@
-package com.example.appfilmecatalogo
+package com.example.appfilmecatalogo.ui
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -34,7 +33,7 @@ class MovieItemAdapter :
 
             Glide
                 .with(biding.root.context)
-                .load("https://image.tmdb.org/t/p/original"+movie.backdrop_path)
+                .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
                 .centerCrop()
                 .into(biding.imageMovie)
 

@@ -1,5 +1,7 @@
 package com.example.appfilmecatalogo.models
 
+import java.io.Serializable
+
 data class PopularWeeklyFilms(
     val adult: Boolean,
     val backdrop_path: String,// "/tRS6jvPM9qPrrnx2KRp3ew96Yot.jpg",
@@ -16,4 +18,4 @@ data class PopularWeeklyFilms(
     val vote_average: Float,
     val vote_count: Int,
     val media_type: String
-)
+): Serializable
