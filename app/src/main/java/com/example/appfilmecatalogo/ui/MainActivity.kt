@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
     private val retrofit by lazy {
         Retrofit.Builder()
-            // .client(httpClient)
+             .client(httpClient)
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -77,8 +77,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         intent.putExtra("movieId", movieId)
+        intent.putExtra("movieTitle", movieSelected?.title)
+        intent.putExtra("movieAdult", movieSelected?.adult)
+        intent.putExtra("movieReleaseDate", movieSelected?.release_date)
+        intent.putExtra("movieVoteAverage", movieSelected?.vote_average)
         intent.putExtra("movieSelected",movieSelected)
-//        Toast.makeText(this, movieSelected?.backdrop_path, Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }
 

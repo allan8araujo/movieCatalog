@@ -1,15 +1,24 @@
 package com.example.appfilmecatalogo.repository
 
+import com.example.appfilmecatalogo.utils.Constants
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 
-class Interceptor():Interceptor {
+class Interceptor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request: Request=chain
+        val url =
+            chain
+                .request()
+                .url
+                .newBuilder()
+                .addQueryParameter("api_key", Constants.API_KEY)
+                .build()
+
+        val request: Request = chain
             .request()
             .newBuilder()
-            .addHeader("api_key","02cb01541d4df0ae3ca93b9d76d74c96")
+            .url(url)
             .build()
         return chain.proceed(request)
     }

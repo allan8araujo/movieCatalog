@@ -17,10 +17,17 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
 
-        val movieId = intent.getIntExtra("movieId", 0)
         val movieSelected= intent.getSerializableExtra("movieSelected") as PopularWeeklyFilms
-        Log.i("id", movieSelected.id.toString())
-        Log.i("title", movieSelected.title)
+        val movieId = intent.getIntExtra("movieId", 0)
+        val movieTitle= intent.getStringExtra("movieTitle")
+        val movieVoteAverage = intent.getFloatExtra("movieVoteAverage",0f)
+        val movieReleaseDate = intent.getStringExtra("movieReleaseDate")
+        val movieAdult= intent.getBooleanExtra("movieAdult",false)
+
+        biding.textMovieTitleDetails.text= movieTitle
+        biding.releaseDate.text= "Release date: "+movieReleaseDate
+        biding.voteAverage.text= movieVoteAverage.toString()
+
     //tratar se for 0?
 //        val movieSelected = mockLives().results.find { PopularWeeklyFilms ->
 //            PopularWeeklyFilms.id == movieId
