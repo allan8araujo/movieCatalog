@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="#9B72AA">
 
+
+    <ImageView
+        android:id="@+id/image_back"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@drawable/round_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:elevation="2dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
     <ImageView
         android:id="@+id/movie_image"
         android:layout_width="match_parent"
@@ -13,7 +27,8 @@
         android:contentDescription="@string/img_movie"
         android:scaleType="centerCrop"
         android:src="@drawable/uncharted"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <TextView
         android:id="@+id/text_movie_title_details"

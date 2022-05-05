@@ -7,12 +7,13 @@
         <entry key="..\:/Users/afurtuos/Documents/Projetos/IMDB Beca/everis-becamobile-android/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/afurtuos/Documents/Projetos/IMDB Beca/everis-becamobile-android/app/src/main/res/layout/activity_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/afurtuos/Documents/Projetos/IMDB Beca/everis-becamobile-android/app/src/main/res/layout/list_movies_item.xml" value="0.33" />
-<<<<<<< HEAD
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1855" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/pb_loading.xml" value="0.113" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/round_button.xml" value="0.1945" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout-v26/activity_details_movie.xml" value="0.2" />
-        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_details_movie.xml" value="0.25" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_details_movie.xml" value="0.18" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_user.xml" value="0.2" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/list_movies_item.xml" value="0.25" />
@@ -20,11 +21,6 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-=======
-      </map>
-    </option>
-  </component>
->>>>>>> 48455bf79c0f4207aa016fff8e5a36db2ed1f1de
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

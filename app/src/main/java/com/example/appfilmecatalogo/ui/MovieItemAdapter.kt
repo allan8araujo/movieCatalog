@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
 import com.example.appfilmecatalogo.models.PopularWeeklyFilms
 
@@ -29,11 +30,14 @@ class MovieItemAdapter :
         private val onClickListener: ((movieId: Int) -> Unit)?
     ) : RecyclerView.ViewHolder(biding.root) {
         fun bind(movie: PopularWeeklyFilms) {
-            biding.textMovieTitle.text = movie.title
 
+
+            biding.textMovieTitle.text = movie.title
             Glide
                 .with(biding.root.context)
                 .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
+
+                .placeholder(R.drawable.pb_loading__)
                 .centerCrop()
                 .into(biding.imageMovie)
 
