@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">appFilmeCatalogo</string>
-<<<<<<< HEAD
     <string name="movies">Trending Movies</string>
-=======
-    <string name="movies">MOVIES</string>
->>>>>>> 48455bf79c0f4207aa016fff8e5a36db2ed1f1de
     <string name="texto_vazio">texto vazio</string>
     <string name="img_movie">img_movie</string>
 </resources>

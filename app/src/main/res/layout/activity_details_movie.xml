@@ -41,20 +41,13 @@
         app:layout_constraintTop_toBottomOf="@id/text_movie_title_details" />
 
     <TextView
-<<<<<<< HEAD
-        android:background="@drawable/round_button"
         android:id="@+id/vote_average"
-        android:gravity="center"
         android:layout_width="90dp"
         android:layout_height="90dp"
-=======
-        android:id="@+id/vote_average"
-        android:gravity="center"
-        android:layout_width="128dp"
-        android:layout_height="60dp"
->>>>>>> 48455bf79c0f4207aa016fff8e5a36db2ed1f1de
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/round_button"
+        android:gravity="center"
         android:hint="5.8"
         android:textColor="@android:color/white"
         android:textSize="36sp"
@@ -62,7 +55,6 @@
         app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/movie_description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -76,17 +68,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-=======
-        android:layout_marginTop="50sp"
 
-        android:id="@+id/movie_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="title_movie"
-        android:textColor="@android:color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
->>>>>>> 48455bf79c0f4207aa016fff8e5a36db2ed1f1de
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_movie_title_details" />
 
