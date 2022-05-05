@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9B72AA">
+
+    <ImageView
+        android:id="@+id/movie_image"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:contentDescription="@string/img_movie"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uncharted"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_movie_title_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="title_movie"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/vote_average"
+        app:layout_constraintTop_toBottomOf="@id/movie_image" />
+
+
+    <TextView
+        android:id="@+id/release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:hint="release_date"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/vote_average"
+        app:layout_constraintTop_toBottomOf="@id/text_movie_title_details" />
+
+    <TextView
+        android:background="@drawable/round_button"
+        android:id="@+id/vote_average"
+        android:gravity="center"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="5.8"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_image" />
+
+    <TextView
+        android:id="@+id/movie_description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="64dp"
+
+        android:scrollbars="vertical"
+
+        android:textColor="@android:color/white"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_movie_title_details" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
