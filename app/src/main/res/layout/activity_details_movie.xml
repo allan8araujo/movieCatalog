@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9B72AA">
+    android:background="@drawable/my_gradient">
 
 
     <ImageView
@@ -33,19 +33,24 @@
 
 
     <TextView
+
+        android:fontFamily="@font/roboto_light"
         android:id="@+id/text_movie_title_details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:hint="title_movie"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/vote_average"
         app:layout_constraintTop_toBottomOf="@id/movie_image" />
 
     <TextView
+
+        android:fontFamily="@font/roboto_light"
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,6 +63,8 @@
         app:layout_constraintTop_toBottomOf="@id/text_movie_title_details" />
 
     <TextView
+
+        android:fontFamily="@font/roboto_light"
 
         android:id="@+id/vote_average"
         android:layout_width="90dp"
@@ -73,6 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
     <TextView
+
         android:id="@+id/movie_description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -80,13 +88,14 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="8dp"
 
-        android:scrollbars="vertical"
+        android:fontFamily="@font/roboto_light"
 
-        android:textColor="@android:color/white"
+        android:scrollbars="vertical"
+        android:textColor="#EAEAEA"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_movie_title_details"

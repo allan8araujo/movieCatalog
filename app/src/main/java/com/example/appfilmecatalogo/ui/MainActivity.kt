@@ -14,21 +14,22 @@ import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModel
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
+
     private val retrofitInstanceMain by lazy {
-        Retrofit.Builder()
-            .client(HttpClient.clientInterceptor)
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            Retrofit.Builder()
+                .client(HttpClient.clientInterceptor)
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
     }
 
     private val movieClient: RetrofitService by lazy {
         retrofitInstanceMain.create(RetrofitService::class.java)
     }
-
 
     private val movieRepository = MovieRepository(movieClient)
     private val movieFactory = MovieViewModelFactory(movieRepository)
@@ -69,13 +70,12 @@ class MainActivity : AppCompatActivity() {
         val movieSelected = movieViewModel.movies.value?.results?.find { PopularWeeklyFilms ->
             PopularWeeklyFilms.id == movieId
         }
-
         intent.putExtra("movieId", movieId)
         intent.putExtra("movieTitle", movieSelected?.title)
         intent.putExtra("movieAdult", movieSelected?.adult)
         intent.putExtra("movieReleaseDate", movieSelected?.release_date)
         intent.putExtra("movieVoteAverage", movieSelected?.vote_average)
-        intent.putExtra("movieSelected",movieSelected)
+        intent.putExtra("movieSelected", movieSelected)
         startActivity(intent)
     }
 

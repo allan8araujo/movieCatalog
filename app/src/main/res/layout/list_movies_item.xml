@@ -8,14 +8,19 @@
     app:cardElevation="2dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
-    app:contentPadding="0dp">
+    app:contentPadding="0dp"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#9B72AA">
+        android:backgroundTint="#9B72AA"
+        
+        >
 
         <ImageView
+
             android:id="@+id/image_movie"
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -27,11 +32,15 @@
             tools:ignore="ContentDescription" />
 
         <TextView
+
+android:text="teste"
+            android:fontFamily="@font/roboto_light"
             app:autoSizeTextType="uniform"
+
             android:id="@+id/text_movie_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#99B59CBC"
+            android:layout_height="40dp"
+            android:background="#99000000"
             android:gravity="center"
             android:hint="@string/texto_vazio"
             android:textAlignment="center"
