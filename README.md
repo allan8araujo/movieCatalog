@@ -7,7 +7,7 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   Application made in order to list the hot movies of the week and list the details when selecting one of them.
 
 Layout until now:
-![image](https://user-images.githubusercontent.com/77680596/166964791-ba14819d-a089-4bf7-8a8d-c04a7be72394.png)
+https://user-images.githubusercontent.com/77680596/167207194-e67b8a0a-7489-4615-a0da-d64d06451036.mp4
 
 
 
