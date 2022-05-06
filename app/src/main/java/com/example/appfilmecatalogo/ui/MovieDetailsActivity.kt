@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColor
+import androidx.core.graphics.toColorLong
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.api.HttpClient
@@ -51,7 +53,6 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
             .placeholder(R.drawable.loading_details)
             .centerCrop()
             .into(biding.movieImage)
-
         //     movieViewModelDetails.getAllLivesDetails()
         // movieViewModel.movies.observe(this) {movieDetails -> setDetails(movieDetails)}
         //tratar se for 0?
@@ -63,12 +64,18 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
         val movieTitle = intent.getStringExtra("movieTitle")
         val movieVoteAverage = intent.getFloatExtra("movieVoteAverage", 0f)
         val movieReleaseDate = intent.getStringExtra("movieReleaseDate")
-        //    val movieId = intent.getIntExtra("movieId", 0)
-        //    val movieAdult = intent.getBooleanExtra("movieAdult", false)
         biding.textMovieTitleDetails.text = movieTitle
         biding.releaseDate.text = "Release date: " + movieReleaseDate
         biding.voteAverage.text = movieVoteAverage.toString()
         return movieSelected
+//if (movieVoteAverage <= 5){
+//    biding.voteAverage.setBackgroundColor(resources.getColor(R.color.red_avaliation))
+//} else {
+//    biding.voteAverage.setBackgroundColor(resources.getColor(R.color.green_avaliation))
+//}
+        //    val movieId = intent.getIntExtra("movieId", 0)
+        //    val movieAdult = intent.getBooleanExtra("movieAdult", false)
+
     }
 
     override fun onClick(view: View) {

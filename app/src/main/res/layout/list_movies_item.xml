@@ -27,6 +27,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
+            app:autoSizeTextType="uniform"
             android:id="@+id/text_movie_title"
             android:layout_width="match_parent"
             android:layout_height="50dp"
