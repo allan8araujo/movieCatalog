@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 2100)
 
         biding.animationTap.postDelayed({
             val teste= biding.animationTap.playAnimation()
