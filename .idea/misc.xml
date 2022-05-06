@@ -8,6 +8,7 @@
         <entry key="..\:/Users/afurtuos/Documents/Projetos/IMDB Beca/everis-becamobile-android/app/src/main/res/layout/activity_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/afurtuos/Documents/Projetos/IMDB Beca/everis-becamobile-android/app/src/main/res/layout/list_movies_item.xml" value="0.33" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable-xhdpi/background_lyt.xml" value="0.203" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1855" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/drawable/ic_movie.xml" value="0.1555" />
@@ -18,9 +19,10 @@
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/font/my_font.xml" value="0.1824074074074074" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout-v26/activity_details_movie.xml" value="0.2" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_details_movie.xml" value="0.1969111969111969" />
-        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_splash_screen.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_main.xml" value="0.25908372827804105" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/activity_user.xml" value="0.2" />
+        <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/jsontest.xml" value="0.2" />
         <entry key="..\:/Users/allan/Downloads/everis-becamobile-android-AllanAraujo/everis-becamobile-android-AllanAraujo/app/src/main/res/layout/list_movies_item.xml" value="0.25" />
       </map>
     </option>

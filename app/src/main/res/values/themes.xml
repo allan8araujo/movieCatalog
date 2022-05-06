@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AppFilmeCatalogo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.AppFilmeCatalogo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
+      <item name="android:windowBackground"> @drawable/my_gradient </item>
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">#9B72AA</item>
         <item name="colorOnPrimary">@color/white</item>
