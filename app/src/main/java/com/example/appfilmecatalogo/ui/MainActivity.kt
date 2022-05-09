@@ -4,8 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.api.HttpClient
 import com.example.appfilmecatalogo.api.RetrofitService
 import com.example.appfilmecatalogo.databinding.ActivityMainBinding
@@ -19,7 +25,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private val retrofitInstanceMain by lazy {
@@ -48,6 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
+       biding.imgMenu.setOnClickListener(this)
 
         movielistAdapter.onClickListener = { movieId ->
             goToMovieDetails(movieId)
@@ -100,6 +107,27 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
+        }
+    }
+
+    override fun onClick(view: View) {
+        if (view.id == R.id.img_menu) {
+            val popupmenu = PopupMenu(this, view)
+            popupmenu.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.item1 -> {
+                        Toast.makeText(this, "menu cliked 1", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.item2 -> {
+                        Toast.makeText(this, "menu cliked 1", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupmenu.inflate(R.menu.menu_main)
+            popupmenu.show()
         }
     }
 

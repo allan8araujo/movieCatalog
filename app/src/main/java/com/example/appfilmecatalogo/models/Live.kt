@@ -1,20 +1,22 @@
 package com.example.appfilmecatalogo.models
 
+import androidx.activity.result.ActivityResult
+import java.util.Comparator
+
 
 data class Lives(
     val page: Int,
-    val results: List<PopularWeeklyFilms>,
+    val results: MutableList<PopularWeeklyFilms>,
     val total_pages: Int,
     val total_results: Int
 )
 
-fun mockLives() =
-    Lives(
+fun mockLives() = Lives(
         1,
-        listOf(
+        mutableListOf(
             PopularWeeklyFilms(
                 true,
-                "filme",
+                "a",
                 listOf(33, 2, 1),
                 3,
                 "en",
@@ -23,7 +25,41 @@ fun mockLives() =
                 3f,
                 "pathh_post",
                 "20-02-010",
-                "Erro ao carregar",
+                "Erro ao carregar... ",
+                true,
+                32.2f,
+                2,
+                "3"
+            ),
+            PopularWeeklyFilms(
+                true,
+                "c",
+                listOf(33, 2, 1),
+                4,
+                "en",
+                "2",
+                "2",
+                1f,
+                "pathh_post",
+                "20-02-010",
+                "Erro ao carregar...",
+                true,
+                32.2f,
+                2,
+                "3"
+            ),
+            PopularWeeklyFilms(
+                true,
+                "b",
+                listOf(33, 2, 1),
+                4,
+                "en",
+                "2",
+                "2",
+                2f,
+                "pathh_post",
+                "20-02-010",
+                "Erro ao carregar...",
                 true,
                 32.2f,
                 2,
@@ -40,41 +76,7 @@ fun mockLives() =
                 3f,
                 "pathh_post",
                 "20-02-010",
-                "Erro ao carregar",
-                true,
-                32.2f,
-                2,
-                "3"
-            ),
-            PopularWeeklyFilms(
-                true,
-                "filme",
-                listOf(33, 2, 1),
-                4,
-                "en",
-                "2",
-                "2",
-                3f,
-                "pathh_post",
-                "20-02-010",
-                "Erro ao carregar",
-                true,
-                32.2f,
-                2,
-                "3"
-            ),
-            PopularWeeklyFilms(
-                true,
-                "filme",
-                listOf(33, 2, 1),
-                4,
-                "en",
-                "2",
-                "2",
-                3f,
-                "pathh_post",
-                "20-02-010",
-                "Erro ao carregar",
+                "Erro ao carregar...",
                 true,
                 32.2f,
                 2,

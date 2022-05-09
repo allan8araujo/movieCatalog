@@ -4,9 +4,8 @@ import androidx.lifecycle.*
 import com.example.appfilmecatalogo.models.Lives
 import com.example.appfilmecatalogo.models.MovieResult
 import com.example.appfilmecatalogo.models.mockLives
-import com.example.appfilmecatalogo.models.movieDetails
+import com.example.appfilmecatalogo.repository.FilterLives
 import com.example.appfilmecatalogo.repository.IMovieRepository
-import com.example.appfilmecatalogo.repository.IMovieRepositoryDetails
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -25,28 +24,13 @@ class MovieViewModel(
                 val movieFromApi = withContext(Dispatchers.IO) {
                     movieRepository.getAllLives()
                 }
+                FilterLives.filterByPopularity(movieFromApi)
                 livelist.value = MovieResult.Sucess(movieFromApi)
             } catch (e: Exception) {
                 val movieResult = MovieResult.Error<Lives>(e, mockLives())
 
-                livelist.value=movieResult
+                livelist.value = movieResult
             }
-        }
-    }
-}
-
-class MovieViewModelDetails(
-    private val movieRepositoryDetails: IMovieRepositoryDetails,
-) : ViewModel() {
-    private val detailMovie = MutableLiveData<movieDetails>()
-    val movies: LiveData<movieDetails> = detailMovie
-
-    fun getAllLivesDetails() {
-        viewModelScope.launch {
-            val movieFromApiDetails = withContext(Dispatchers.IO) {
-                movieRepositoryDetails.getMovieDetail()
-            }
-            detailMovie.value = movieFromApiDetails
         }
     }
 }
