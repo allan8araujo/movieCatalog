@@ -1,16 +1,12 @@
 package com.example.appfilmecatalogo.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.api.HttpClient
 import com.example.appfilmecatalogo.api.RetrofitService
@@ -19,14 +15,15 @@ import com.example.appfilmecatalogo.models.Lives
 import com.example.appfilmecatalogo.models.MovieResult
 import com.example.appfilmecatalogo.repository.MovieRepository
 import com.example.appfilmecatalogo.utils.Constants
+import com.example.appfilmecatalogo.viewmodel.Movie.FilterTypes
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModel
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Collections.unmodifiableList
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
+class ListActivity : AppCompatActivity(), View.OnClickListener {
 
     private val retrofitInstanceMain by lazy {
         Retrofit.Builder()
@@ -54,24 +51,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
-       biding.imgMenu.setOnClickListener(this)
+        biding.imgMenu.setOnClickListener(this)
 
         movielistAdapter.onClickListener = { movieId ->
             goToMovieDetails(movieId)
         }
         biding.movieItemRecyclerView.adapter = movielistAdapter
+        movieViewModel.getAllLives()
         getMovieAndObserve()
     }
 
     private fun getMovieAndObserve() {
-        movieViewModel.getAllLives()
-        movieViewModel.movies.observe(this) { movieApiResult ->
+        movieViewModel.movies.observe(this)
+        { movieApiResult ->
             when (movieApiResult) {
                 is MovieResult.Loading -> {
-                    Log.d("Info", "Loading")
                 }
                 is MovieResult.Sucess -> {
-                    Log.d("Info", "Loading")
                     setListAdapter(movieApiResult.data)
                 }
                 is MovieResult.Error -> {
@@ -80,7 +76,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         "Something unexpected happened, try again later.",
                         Toast.LENGTH_LONG).show())
                 }
-
             }
         }
     }
@@ -93,19 +88,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, MovieDetailsActivity::class.java)
 
         movieViewModel.movies.observe(this) { movieresult ->
-            when (movieresult) {
-                is MovieResult.Sucess -> {
-                    val movieselected = movieresult.data.results.find { PopularWeeklyFilms ->
-                        PopularWeeklyFilms.id == movieId
-                    }
-                    intent.putExtra("movieId", movieId)
-                    intent.putExtra("movieTitle", movieselected?.title)
-                    intent.putExtra("movieAdult", movieselected?.adult)
-                    intent.putExtra("movieReleaseDate", movieselected?.release_date)
-                    intent.putExtra("movieVoteAverage", movieselected?.vote_average)
-                    intent.putExtra("movieSelected", movieselected)
-                    startActivity(intent)
+            if (movieresult is MovieResult.Sucess) {
+                val movieselected = movieresult.data.results.find { PopularWeeklyFilms ->
+                    PopularWeeklyFilms.id == movieId
                 }
+                intent.putExtra("movieId", movieId)
+                intent.putExtra("movieTitle", movieselected?.title)
+                intent.putExtra("movieAdult", movieselected?.adult)
+                intent.putExtra("movieReleaseDate", movieselected?.release_date)
+                intent.putExtra("movieVoteAverage", movieselected?.vote_average)
+                intent.putExtra("movieSelected", movieselected)
+                startActivity(intent)
             }
         }
     }
@@ -116,11 +109,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             popupmenu.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.item1 -> {
-                        Toast.makeText(this, "menu cliked 1", Toast.LENGTH_SHORT).show()
+                        movieViewModel.getAllLives()
+                        movieViewModel.movies.observe(this) { moveApiResult ->
+                            if (moveApiResult is MovieResult.Sucess) {
+                                FilterTypes.POPULARITY.FilterTypes(moveApiResult.data)
+                                movielistAdapter.notifyDataSetChanged()
+                            }
+                        }
                         true
                     }
                     R.id.item2 -> {
-                        Toast.makeText(this, "menu cliked 1", Toast.LENGTH_SHORT).show()
+                        movieViewModel.movies.observe(this) { moveApiResult ->
+                            if (moveApiResult is MovieResult.Sucess)
+                                FilterTypes.RELEASE_DATE.FilterTypes(moveApiResult.data)
+                            movielistAdapter.notifyDataSetChanged()
+
+                        }
+                        true
+                    }
+                    R.id.item3 -> {
+                        movieViewModel.movies.observe(this) { moveApiResult ->
+                            if (moveApiResult is MovieResult.Sucess)
+                                FilterTypes.TITLE.FilterTypes(moveApiResult.data)
+                            movielistAdapter.notifyDataSetChanged()
+
+                        }
                         true
                     }
                     else -> false
@@ -130,5 +143,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             popupmenu.show()
         }
     }
-
 }

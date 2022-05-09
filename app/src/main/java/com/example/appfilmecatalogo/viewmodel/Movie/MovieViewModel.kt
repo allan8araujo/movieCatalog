@@ -4,7 +4,6 @@ import androidx.lifecycle.*
 import com.example.appfilmecatalogo.models.Lives
 import com.example.appfilmecatalogo.models.MovieResult
 import com.example.appfilmecatalogo.models.mockLives
-import com.example.appfilmecatalogo.repository.FilterLives
 import com.example.appfilmecatalogo.repository.IMovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,7 +23,6 @@ class MovieViewModel(
                 val movieFromApi = withContext(Dispatchers.IO) {
                     movieRepository.getAllLives()
                 }
-                FilterLives.filterByPopularity(movieFromApi)
                 livelist.value = MovieResult.Sucess(movieFromApi)
             } catch (e: Exception) {
                 val movieResult = MovieResult.Error<Lives>(e, mockLives())

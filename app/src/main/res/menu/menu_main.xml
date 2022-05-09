@@ -4,13 +4,18 @@
     <item
         android:id="@+id/item1"
         android:icon="@drawable/ic_baseline_more_vert_24"
-        android:title="item2"
+        android:title="List by popularity"
         app:showAsAction="ifRoom"
 
         />
     <item
         android:id="@+id/item2"
         android:icon="@drawable/ic_baseline_more_vert_24"
-        android:title="item3"
+        android:title="List by release date"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        android:title="List by title"
         app:showAsAction="ifRoom"/>
 </menu>

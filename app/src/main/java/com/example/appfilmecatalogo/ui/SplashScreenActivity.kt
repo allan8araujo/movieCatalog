@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val varTitulo = biding.textLogo
         varTitulo.animate().translationY(-725f).duration = 2500
         varTitulo.postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ListActivity::class.java)
 
             startActivity(intent)
             finish()

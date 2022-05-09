@@ -53,10 +53,6 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
             .placeholder(R.drawable.loading_details)
             .centerCrop()
             .into(biding.movieImage)
-        //     movieViewModelDetails.getAllLivesDetails()
-        // movieViewModel.movies.observe(this) {movieDetails -> setDetails(movieDetails)}
-        //tratar se for 0?
-        //setData(movieSelected)
     }
 
     private fun SetDataDetailsActivity(): PopularWeeklyFilms {
@@ -68,14 +64,6 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
         biding.releaseDate.text = "Release date: " + movieReleaseDate
         biding.voteAverage.text = movieVoteAverage.toString()
         return movieSelected
-//if (movieVoteAverage <= 5){
-//    biding.voteAverage.setBackgroundColor(resources.getColor(R.color.red_avaliation))
-//} else {
-//    biding.voteAverage.setBackgroundColor(resources.getColor(R.color.green_avaliation))
-//}
-        //    val movieId = intent.getIntExtra("movieId", 0)
-        //    val movieAdult = intent.getBooleanExtra("movieAdult", false)
-
     }
 
     override fun onClick(view: View) {
