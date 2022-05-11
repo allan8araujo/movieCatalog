@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.ui
+package com.example.appfilmecatalogo.presenter.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
-import com.example.appfilmecatalogo.models.PopularWeeklyFilms
+import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
 
 class MovieItemAdapter :
     ListAdapter<PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DIF_CALLBACK) {

@@ -1,10 +1,9 @@
-package com.example.appfilmecatalogo.viewmodel.Movie
+package com.example.appfilmecatalogo.presenter.viewmodel.Movie
 
 import androidx.lifecycle.*
-import com.example.appfilmecatalogo.models.Lives
-import com.example.appfilmecatalogo.models.MovieResult
-import com.example.appfilmecatalogo.models.mockLives
-import com.example.appfilmecatalogo.repository.IMovieRepository
+import com.example.appfilmecatalogo.domain.models.Lives
+import com.example.appfilmecatalogo.domain.models.mockLives
+import com.example.appfilmecatalogo.data.repository.IMovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

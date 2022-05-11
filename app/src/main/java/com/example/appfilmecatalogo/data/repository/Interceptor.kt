@@ -1,6 +1,6 @@
-package com.example.appfilmecatalogo.repository
+package com.example.appfilmecatalogo.data.repository
 
-import com.example.appfilmecatalogo.utils.Constants
+import com.example.appfilmecatalogo.domain.utils.Constants
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

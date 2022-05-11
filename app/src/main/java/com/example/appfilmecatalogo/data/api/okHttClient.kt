@@ -1,6 +1,6 @@
-package com.example.appfilmecatalogo.api
+package com.example.appfilmecatalogo.data.api
 
-import com.example.appfilmecatalogo.repository.Interceptor
+import com.example.appfilmecatalogo.data.repository.Interceptor
 import okhttp3.OkHttpClient
 
 object HttpClient {

@@ -1,17 +1,15 @@
-package com.example.appfilmecatalogo.ui
+package com.example.appfilmecatalogo.presenter.view
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.toColor
-import androidx.core.graphics.toColorLong
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
-import com.example.appfilmecatalogo.api.HttpClient
+import com.example.appfilmecatalogo.data.api.HttpClient
 import com.example.appfilmecatalogo.databinding.ActivityDetailsMovieBinding
-import com.example.appfilmecatalogo.models.PopularWeeklyFilms
-import com.example.appfilmecatalogo.utils.Constants
+import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.appfilmecatalogo.domain.utils.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

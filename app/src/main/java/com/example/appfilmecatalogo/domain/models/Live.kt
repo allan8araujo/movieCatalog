@@ -1,7 +1,4 @@
-package com.example.appfilmecatalogo.models
-
-import androidx.activity.result.ActivityResult
-import java.util.Comparator
+package com.example.appfilmecatalogo.domain.models
 
 
 data class Lives(

@@ -1,9 +1,10 @@
-package com.example.appfilmecatalogo.ui
+package com.example.appfilmecatalogo.presenter
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.appfilmecatalogo.databinding.ActivitySplashScreenBinding
+import com.example.appfilmecatalogo.presenter.view.ListActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var biding: ActivitySplashScreenBinding

@@ -1,7 +1,7 @@
-package com.example.appfilmecatalogo.repository
+package com.example.appfilmecatalogo.data.repository
 
-import com.example.appfilmecatalogo.api.RetrofitService
-import com.example.appfilmecatalogo.models.Lives
+import com.example.appfilmecatalogo.data.api.RetrofitService
+import com.example.appfilmecatalogo.domain.models.Lives
 
 class MovieRepository(private val movieClient:RetrofitService):IMovieRepository {
     override suspend fun getAllLives(): Lives {
