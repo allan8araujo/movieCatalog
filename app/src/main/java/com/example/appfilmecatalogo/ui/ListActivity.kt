@@ -109,7 +109,6 @@ class ListActivity : AppCompatActivity(), View.OnClickListener {
             popupmenu.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.item1 -> {
-                        movieViewModel.getAllLives()
                         movieViewModel.movies.observe(this) { moveApiResult ->
                             if (moveApiResult is MovieResult.Sucess) {
                                 FilterTypes.POPULARITY.FilterTypes(moveApiResult.data)
