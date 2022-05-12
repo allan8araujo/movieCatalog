@@ -14,8 +14,11 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   
   Application made in order to list the hot movies of the week and list the details when selecting one of them.
   
- [converted-mvvm, clean achitecture e jetpack.pdf](https://github.com/allan8araujo/everis-becamobile-android/files/8674201/converted-mvvm.clean.achitecture.e.jetpack.pdf)
- 
+  
+  Pdf referente às mudanças do padrão arquitetural:
+  [mvvm, clean achitecture e jetpack-c.pdf](https://github.com/allan8araujo/everis-becamobile-android/files/8679150/mvvm.clean.achitecture.e.jetpack-c.pdf)
+
+  
   ![2022-05-09-17-44-37 (1)](https://user-images.githubusercontent.com/77680596/167498061-9cf29a96-ba82-4352-aa20-de1042c5d801.gif)
 Layout until now:
 https://user-images.githubusercontent.com/77680596/167207272-d01615a9-cc61-4f90-8ecc-64800b6b7499.mp4
