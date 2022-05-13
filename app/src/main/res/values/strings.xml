@@ -3,4 +3,12 @@
     <string name="movies">Trending Movies</string>
     <string name="texto_vazio">texto vazio</string>
     <string name="img_movie">img_movie</string>
+    <string name="application_title_trending_movies">Application title Trending Movies</string>
+    <string name="more_filters">More Filters</string>
+    <string name="trending_list_of_movies">Trending list of movies.</string>
+    <string name="hey_we_re_still_opening_wait_a_bit">Hey, we\'re still opening. Wait a bit.</string>
+    <string name="movie_description_sinopse">Movie Description (Sinopse)</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_vote_average">Movie vote average</string>
+    <string name="_5_8">5.8</string>
 </resources>
