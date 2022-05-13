@@ -1,10 +1,9 @@
-package com.example.appfilmecatalogo.presenter
+package com.example.appfilmecatalogo.presenter.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.appfilmecatalogo.databinding.ActivitySplashScreenBinding
-import com.example.appfilmecatalogo.presenter.view.ListActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var biding: ActivitySplashScreenBinding
@@ -16,15 +15,13 @@ class SplashScreenActivity : AppCompatActivity() {
         varTitulo.animate().translationY(-725f).duration = 2500
         varTitulo.postDelayed({
             val intent = Intent(this, ListActivity::class.java)
-
             startActivity(intent)
             finish()
         }, 2100)
 
         biding.animationTap.postDelayed({
-            val teste= biding.animationTap.playAnimation()
+            biding.animationTap.playAnimation()
         },1000)
     }
-
 
 }

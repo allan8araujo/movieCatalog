@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppFilmeCatalogo">
         <activity
-            android:name="com.example.appfilmecatalogo.presenter.SplashScreenActivity"
+            android:name="com.example.appfilmecatalogo.presenter.view.SplashScreenActivity"
             android:exported="true">
 
 
