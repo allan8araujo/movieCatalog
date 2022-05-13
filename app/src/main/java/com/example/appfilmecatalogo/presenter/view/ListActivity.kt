@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.ui
+package com.example.appfilmecatalogo.presenter.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,16 +8,17 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appfilmecatalogo.R
-import com.example.appfilmecatalogo.api.HttpClient
-import com.example.appfilmecatalogo.api.RetrofitService
+import com.example.appfilmecatalogo.data.api.HttpClient
+import com.example.appfilmecatalogo.data.api.RetrofitService
 import com.example.appfilmecatalogo.databinding.ActivityMainBinding
-import com.example.appfilmecatalogo.models.Lives
-import com.example.appfilmecatalogo.models.MovieResult
-import com.example.appfilmecatalogo.repository.MovieRepository
-import com.example.appfilmecatalogo.utils.Constants
-import com.example.appfilmecatalogo.viewmodel.Movie.FilterTypes
-import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModel
-import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModelFactory
+import com.example.appfilmecatalogo.domain.models.Lives
+import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieResult
+import com.example.appfilmecatalogo.data.repository.MovieRepository
+import com.example.appfilmecatalogo.domain.utils.Constants
+import com.example.appfilmecatalogo.presenter.viewmodel.Movie.FilterTypes
+import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
+import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieViewModel
+import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

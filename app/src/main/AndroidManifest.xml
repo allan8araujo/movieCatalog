@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppFilmeCatalogo">
         <activity
-            android:name=".ui.SplashScreenActivity"
+            android:name="com.example.appfilmecatalogo.presenter.view.SplashScreenActivity"
             android:exported="true">
 
 
@@ -24,10 +24,15 @@
         </activity>
 
         <activity
+<<<<<<< HEAD
             android:name=".ui.ListActivity"
             android:exported="true" />
+=======
+            android:name="com.example.appfilmecatalogo.presenter.view.ListActivity"
+            android:exported="true"/>
+>>>>>>> 87ebc20bd2d2fa33cf1f870e390e1730394a467e
         <activity
-            android:name=".ui.MovieDetailsActivity"
+            android:name="com.example.appfilmecatalogo.presenter.view.MovieDetailsActivity"
             android:exported="true" />
 
         <meta-data
