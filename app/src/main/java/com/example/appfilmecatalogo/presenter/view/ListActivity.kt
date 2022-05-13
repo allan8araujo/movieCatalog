@@ -54,6 +54,7 @@ class ListActivity : AppCompatActivity(), View.OnClickListener {
         movielistAdapter.onClickListener = { movieId ->
             goToMovieDetails(movieId)
         }
+
         biding.movieItemRecyclerView.adapter = movielistAdapter
         movieViewModel.getAllLives()
         getMovieAndObserve()
