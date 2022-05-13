@@ -20,15 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
         }, 2100)
 
         biding.animationTap.postDelayed({
-<<<<<<< HEAD:app/src/main/java/com/example/appfilmecatalogo/ui/SplashScreenActivity.kt
-            val teste = biding.animationTap.playAnimation()
+            biding.animationTap.playAnimation()
         }, 1000)
     }
 }
-=======
-            biding.animationTap.playAnimation()
-        },1000)
-    }
-
-}
->>>>>>> 87ebc20bd2d2fa33cf1f870e390e1730394a467e:app/src/main/java/com/example/appfilmecatalogo/presenter/view/SplashScreenActivity.kt
