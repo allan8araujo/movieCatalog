@@ -6,6 +6,7 @@ data class Lives(
     val total_pages: Int,
     val total_results: Int,
 )
+
 fun mockLives() = Lives(
     1,
     mutableListOf(

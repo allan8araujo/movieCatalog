@@ -6,30 +6,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
-import com.example.appfilmecatalogo.data.api.HttpClient
 import com.example.appfilmecatalogo.databinding.ActivityDetailsMovieBinding
 import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
-import com.example.appfilmecatalogo.domain.utils.Constants
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
-
-    // private val movieRepositoryDetail = MovieRepositoryDetails(movieClientService)
-    // private val movieFactoryDetails = MovieViewModelFactoryDetails(movieRepositoryDetail)
-    //  private val movieViewModelDetails by viewModels<MovieViewModelDetails> { movieFactoryDetails }
-    //    private val movieClientService: RetrofitServiceDetail by lazy {
-    //        retrofitInstanceDetails.create(RetrofitServiceDetail::class.java)
-    //    }
-
-    private val retrofitInstanceDetails by lazy {
-        Retrofit.Builder()
-            .client(HttpClient.clientInterceptor)
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
 
     private val biding by lazy {
         ActivityDetailsMovieBinding.inflate(layoutInflater)
@@ -39,11 +19,9 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
         supportActionBar?.hide()
-
         biding.movieDescription.movementMethod = ScrollingMovementMethod()
         biding.imageBack.setOnClickListener(this)
-        val movieSelected = SetDataDetailsActivity()
-
+        val movieSelected = setDataDetailsActivity()
         val overview = movieSelected.overview
         biding.movieDescription.text = overview
         Glide.with(biding.root.context)
@@ -53,13 +31,13 @@ class MovieDetailsActivity : AppCompatActivity(), View.OnClickListener {
             .into(biding.movieImage)
     }
 
-    private fun SetDataDetailsActivity(): PopularWeeklyFilms {
+    private fun setDataDetailsActivity(): PopularWeeklyFilms {
         val movieSelected = intent.getSerializableExtra("movieSelected") as PopularWeeklyFilms
         val movieTitle = intent.getStringExtra("movieTitle")
         val movieVoteAverage = intent.getFloatExtra("movieVoteAverage", 0f)
         val movieReleaseDate = intent.getStringExtra("movieReleaseDate")
         biding.textMovieTitleDetails.text = movieTitle
-        biding.releaseDate.text = "Release date: " + movieReleaseDate
+        biding.releaseDate.text = "Release date: $movieReleaseDate"
         biding.voteAverage.text = movieVoteAverage.toString()
         return movieSelected
     }

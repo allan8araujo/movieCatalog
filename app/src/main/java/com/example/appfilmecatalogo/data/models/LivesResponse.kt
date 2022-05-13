@@ -7,7 +7,7 @@ data class LivesResponse(
     val pageLives: Int,
     val resultsLives: MutableList<PopularWeeklyFilms>,
     val total_pagesLives: Int,
-    val total_resultsLives: Int
+    val total_resultsLives: Int,
 )
 
 fun LivesResponse.toResponse() = Lives(
