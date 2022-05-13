@@ -1,6 +1,9 @@
 package com.example.appfilmecatalogo.viewmodel.Movie
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.appfilmecatalogo.models.Lives
 import com.example.appfilmecatalogo.models.MovieResult
 import com.example.appfilmecatalogo.models.mockLives
@@ -8,7 +11,6 @@ import com.example.appfilmecatalogo.repository.IMovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 class MovieViewModel(
     private val movieRepository: IMovieRepository,

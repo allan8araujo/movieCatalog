@@ -1,8 +1,8 @@
 package com.example.appfilmecatalogo.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appfilmecatalogo.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -21,9 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
         }, 2100)
 
         biding.animationTap.postDelayed({
-            val teste= biding.animationTap.playAnimation()
-        },1000)
+            val teste = biding.animationTap.playAnimation()
+        }, 1000)
     }
-
-
 }

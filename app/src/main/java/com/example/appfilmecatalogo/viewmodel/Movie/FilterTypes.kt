@@ -18,7 +18,6 @@ enum class FilterTypes {
             }
             return list
         }
-
     },
     RELEASE_DATE {
         override fun FilterTypes(list: Lives): Lives {
@@ -39,4 +38,3 @@ enum class FilterTypes {
 
     abstract fun FilterTypes(list: Lives): Lives
 }
-

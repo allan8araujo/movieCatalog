@@ -27,16 +27,14 @@ class MovieItemAdapter :
 
     class MovieItemViewHolder(
         private val biding: ListMoviesItemBinding,
-        private val onClickListener: ((movieId: Int) -> Unit)?
+        private val onClickListener: ((movieId: Int) -> Unit)?,
     ) : RecyclerView.ViewHolder(biding.root) {
         fun bind(movie: PopularWeeklyFilms) {
-
 
             biding.textMovieTitle.text = movie.title
             Glide
                 .with(biding.root.context)
                 .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
-
                 .placeholder(R.drawable.pb_loading__)
                 .centerCrop()
                 .into(biding.imageMovie)
@@ -45,7 +43,6 @@ class MovieItemAdapter :
                 onClickListener?.invoke(movie.id)
             }
         }
-
     }
 
     companion object {
@@ -53,19 +50,17 @@ class MovieItemAdapter :
         private val DIF_CALLBACK = object : DiffUtil.ItemCallback<PopularWeeklyFilms>() {
             override fun areItemsTheSame(
                 oldItem: PopularWeeklyFilms,
-                newItem: PopularWeeklyFilms
+                newItem: PopularWeeklyFilms,
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
                 oldItem: PopularWeeklyFilms,
-                newItem: PopularWeeklyFilms
+                newItem: PopularWeeklyFilms,
             ): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
-
 }

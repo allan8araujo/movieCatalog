@@ -20,7 +20,6 @@ import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModel
 import com.example.appfilmecatalogo.viewmodel.Movie.MovieViewModelFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.Collections.unmodifiableList
 
 
 class ListActivity : AppCompatActivity(), View.OnClickListener {
