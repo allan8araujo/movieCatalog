@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_gradient">
+    tools:context=".presenter.fragments.MovieDetailFragment">
 
     <ImageView
         android:id="@+id/image_back"
@@ -21,18 +21,13 @@
 
     <ImageView
         android:id="@+id/movie_image"
-        app:layoutDescription="Movie Poster (Image)"
         android:layout_width="match_parent"
         android:layout_height="325dp"
         android:contentDescription="@string/img_movie"
         android:scaleType="centerCrop"
         android:src="@drawable/uncharted"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp" />
-
-    <!--<com.airbnb.lottie.LottieAnimationView-->
-    <!--    android:layout_width=""-->
-    <!--    android:layout_height=""-->
+        tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/text_movie_title_details"
@@ -67,12 +62,12 @@
     <TextView
 
         android:id="@+id/vote_average"
-        android:contentDescription="@string/movie_vote_average"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="85dp"
+        android:layout_height="86dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button"
+        android:contentDescription="@string/movie_vote_average"
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:textColor="@android:color/white"

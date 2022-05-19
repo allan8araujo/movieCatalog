@@ -1,63 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9B72AA"
     tools:context=".presenter.view.ListActivity">
 
-
-    <TextView
-        android:id="@+id/textView2"
-        android:contentDescription="@string/application_title_trending_movies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-
-        android:fontFamily="@font/poppins_extralight"
-        android:shadowColor="@color/black"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="15"
-        android:text="@string/movies"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/img_menu"
-        android:contentDescription="@string/more_filters"
-        android:layout_width="34dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_baseline_more_vert_24"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <View
-        android:id="@+id/view"
-        android:contentDescription="@string/trending_list_of_movies"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#DCCEDB"
-        app:layout_constraintTop_toBottomOf="@+id/movie_item_recycler_view"
-        app:layout_constraintTop_toTopOf="@+id/movie_item_recycler_view"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_item_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:itemCount="3"
-        tools:listitem="@layout/list_movies_item" />
+        android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
