@@ -27,6 +27,6 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
 
 ## Mp4 link
 Layout until now:
-https://user-images.githubusercontent.com/77680596/167207272-d01615a9-cc61-4f90-8ecc-64800b6b7499.mp4
 
+https://user-images.githubusercontent.com/77680596/169375688-eeee6ffb-d2c7-4372-ad12-c0956c6a94b9.mp4
 
