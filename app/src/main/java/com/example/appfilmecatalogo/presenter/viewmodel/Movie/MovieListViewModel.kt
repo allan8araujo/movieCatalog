@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.appfilmecatalogo.data.repository.IMovieRepository
 import com.example.appfilmecatalogo.domain.models.Lives
 import com.example.appfilmecatalogo.domain.models.mockLives
-import com.example.appfilmecatalogo.presenter.util.MovieResult
+import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.presenter.util
+package com.example.appfilmecatalogo.domain.utils
 
 import com.example.appfilmecatalogo.domain.models.Lives
 

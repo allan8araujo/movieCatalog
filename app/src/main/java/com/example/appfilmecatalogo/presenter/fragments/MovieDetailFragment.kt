@@ -31,7 +31,12 @@ class MovieDetailFragment : Fragment() {
         binding.imageBack.setOnClickListener {
             val transaction =
                 (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-            FragmentReplacer().movieReplaceFragment(ListFragment(), transaction)
+            FragmentReplacer().movieReplaceFragment(MovieListFragment(), transaction)
+        }
+        binding.movieImage.setOnClickListener {
+            val transaction =
+                (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
+            FragmentReplacer().movieReplaceFragment(MovieDetailImageFragment(), transaction)
         }
 
         val movieSelected = setDataDetailsActivity(binding)

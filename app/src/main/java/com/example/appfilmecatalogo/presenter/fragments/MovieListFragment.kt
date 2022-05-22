@@ -11,15 +11,15 @@ import androidx.fragment.app.activityViewModels
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentListBinding
 import com.example.appfilmecatalogo.domain.models.Lives
+import com.example.appfilmecatalogo.domain.utils.FilterTypes
+import com.example.appfilmecatalogo.domain.utils.MovieResult
 import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
-import com.example.appfilmecatalogo.presenter.util.FilterTypes
 import com.example.appfilmecatalogo.presenter.util.FragmentReplacer
-import com.example.appfilmecatalogo.presenter.util.MovieResult
 import com.example.appfilmecatalogo.presenter.view.FactoryBuilder
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 
-class ListFragment : Fragment(), View.OnClickListener {
+class MovieListFragment : Fragment(), View.OnClickListener {
 
     private val movielistAdapter = MovieItemAdapter()
     private val movieListViewModel: MovieListViewModel by activityViewModels { FactoryBuilder.movieFactory }
