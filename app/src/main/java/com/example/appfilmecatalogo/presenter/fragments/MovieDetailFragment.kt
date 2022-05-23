@@ -1,17 +1,21 @@
 package com.example.appfilmecatalogo.presenter.fragments
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestListener
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
 import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.appfilmecatalogo.presenter.adapters.ImageDetailListener
 import com.example.appfilmecatalogo.presenter.util.FragmentReplacer
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 
@@ -47,8 +51,8 @@ class MovieDetailFragment : Fragment() {
             .load("https://image.tmdb.org/t/p/original" + movieSelected?.poster_path)
             .placeholder(R.drawable.loading_details)
             .centerCrop()
+            .listener(ImageDetailListener(movieDetailsViewModel))
             .into(binding.movieImage)
-
         return view
     }
 
