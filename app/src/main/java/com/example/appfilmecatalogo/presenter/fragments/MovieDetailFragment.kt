@@ -1,22 +1,19 @@
 package com.example.appfilmecatalogo.presenter.fragments
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestListener
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
 import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.presenter.adapters.ImageDetailListener
-import com.example.appfilmecatalogo.presenter.util.FragmentReplacer
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 
 class MovieDetailFragment : Fragment() {
@@ -33,14 +30,10 @@ class MovieDetailFragment : Fragment() {
 
         binding.movieDescription.movementMethod = ScrollingMovementMethod()
         binding.imageBack.setOnClickListener {
-            val transaction =
-                (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-            FragmentReplacer().movieReplaceFragment(MovieListFragment(), transaction)
+            findNavController().navigate(R.id.back_to_movieListFragment)
         }
         binding.movieImage.setOnClickListener {
-            val transaction =
-                (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-            FragmentReplacer().movieReplaceFragment(MovieDetailImageFragment(), transaction)
+            findNavController().navigate(R.id.movieDetailFragment_to_DetailImageFragment)
         }
 
         val movieSelected = setDataDetailsActivity(binding)

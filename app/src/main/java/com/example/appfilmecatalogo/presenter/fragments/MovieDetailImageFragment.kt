@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailImageBinding
-import com.example.appfilmecatalogo.presenter.util.FragmentReplacer
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 
 class MovieDetailImageFragment : Fragment() {
@@ -24,9 +24,7 @@ class MovieDetailImageFragment : Fragment() {
         binding.imageDetail.setImageBitmap(movieModelViewDetail.selectedImage.value)
 
         binding.imageDetailBack.setOnClickListener {
-            val transaction =
-                (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-            FragmentReplacer().movieReplaceFragment(MovieDetailFragment(), transaction)
+            findNavController().navigate(R.id.back_to_movieDetailFragment)
         }
         return view
     }
