@@ -17,6 +17,9 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   
   Application made in order to list the hot movies of the week and list the details when selecting one of them.
   
+  ## Figma sugestão de design:
+  [Trending Movies.pdf](https://github.com/allan8araujo/everis-becamobile-android/files/8880590/Trending.Movies.pdf)
+
   ## PDF
   Pdf referente às mudanças do padrão arquitetural:
   [mvvm, clean achitecture e jetpack-c.pdf](https://github.com/allan8araujo/everis-becamobile-android/files/8679150/mvvm.clean.achitecture.e.jetpack-c.pdf)
