@@ -11,7 +11,7 @@ import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
 import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
 
 class MovieItemAdapter :
-    ListAdapter<PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DIF_CALLBACK) {
+    ListAdapter<PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DiffCallBack()) {
 
     var onClickListener: ((movieId: Int) -> Unit)? = null
 
@@ -30,7 +30,6 @@ class MovieItemAdapter :
         private val onClickListener: ((movieId: Int) -> Unit)?,
     ) : RecyclerView.ViewHolder(biding.root) {
         fun bind(movie: PopularWeeklyFilms) {
-
             biding.textMovieTitle.text = movie.title
             Glide
                 .with(biding.root.context)
@@ -41,25 +40,6 @@ class MovieItemAdapter :
 
             biding.root.setOnClickListener {
                 onClickListener?.invoke(movie.id)
-            }
-        }
-    }
-
-    companion object {
-
-        private val DIF_CALLBACK = object : DiffUtil.ItemCallback<PopularWeeklyFilms>() {
-            override fun areItemsTheSame(
-                oldItem: PopularWeeklyFilms,
-                newItem: PopularWeeklyFilms,
-            ): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(
-                oldItem: PopularWeeklyFilms,
-                newItem: PopularWeeklyFilms,
-            ): Boolean {
-                return oldItem == newItem
             }
         }
     }

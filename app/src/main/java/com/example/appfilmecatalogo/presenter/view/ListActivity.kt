@@ -10,7 +10,6 @@ import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewMo
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 
 class ListActivity : AppCompatActivity() {
-
     private val movieViewModel: MovieListViewModel by viewModels { FactoryBuilder.movieFactory }
     private val movieDetailsViewModel: MovieDetailsViewModel by viewModels()
     private val biding by lazy {
@@ -23,7 +22,5 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(biding.root)
-//        val transaction = supportFragmentManager.beginTransaction()
-//        FragmentReplacer().movieReplaceFragment(MovieListFragment(), transaction)
     }
 }

@@ -83,27 +83,24 @@ class MovieListFragment : Fragment(), View.OnClickListener {
             popupmenu.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.item1 -> {
-                        movieListViewModel.movies.observe(this) { moveApiResult ->
+                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
                             if (moveApiResult is MovieResult.Sucess) {
-                                FilterTypes.POPULARITY.FilterTypes(moveApiResult.data)
-                                movielistAdapter.notifyDataSetChanged()
+                                FilterTypes.POPULARITY.filterTypes(moveApiResult.data)
                             }
                         }
                         true
                     }
                     R.id.item2 -> {
-                        movieListViewModel.movies.observe(this) { moveApiResult ->
+                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
                             if (moveApiResult is MovieResult.Sucess)
-                                FilterTypes.RELEASE_DATE.FilterTypes(moveApiResult.data)
-                            movielistAdapter.notifyDataSetChanged()
+                                FilterTypes.RELEASE_DATE.filterTypes(moveApiResult.data)
                         }
                         true
                     }
                     R.id.item3 -> {
-                        movieListViewModel.movies.observe(this) { moveApiResult ->
+                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
                             if (moveApiResult is MovieResult.Sucess)
-                                FilterTypes.TITLE.FilterTypes(moveApiResult.data)
-                            movielistAdapter.notifyDataSetChanged()
+                                FilterTypes.TITLE.filterTypes(moveApiResult.data)
                         }
                         true
                     }

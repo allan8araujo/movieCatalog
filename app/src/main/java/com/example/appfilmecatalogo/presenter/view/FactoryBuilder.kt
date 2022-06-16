@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class FactoryBuilder {
     companion object {
-        val retrofitInstanceMain by lazy {
+        private val retrofitInstanceMain: Retrofit by lazy {
             Retrofit.Builder()
                 .client(HttpClient.clientInterceptor)
                 .baseUrl(Constants.BASE_URL)
@@ -18,10 +18,10 @@ class FactoryBuilder {
                 .build()
         }
 
-        val movieClient: RetrofitService by lazy {
+        private val movieClient: RetrofitService by lazy {
             retrofitInstanceMain.create(RetrofitService::class.java)
         }
-        val movieRepository = MovieRepository(movieClient)
+        private val movieRepository = MovieRepository(movieClient)
         val movieFactory = MovieViewModelFactory(movieRepository)
     }
 }
