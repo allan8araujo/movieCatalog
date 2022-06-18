@@ -14,14 +14,17 @@ import com.example.appfilmecatalogo.domain.models.Lives
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
-import com.example.appfilmecatalogo.presenter.view.FactoryBuilder
+import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
+import com.example.appfilmecatalogo.data.api.RetrofitInstance
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 
 class MovieListFragment : Fragment(), View.OnClickListener {
 
     private val movielistAdapter = MovieItemAdapter()
-    private val movieListViewModel: MovieListViewModel by activityViewModels { FactoryBuilder.movieFactory }
+    private val movieListViewModel: MovieListViewModel by activityViewModels {
+        MovieViewModelFactory(RetrofitInstance.movieRepository)
+    }
     private val movieDetailViewModel: MovieDetailsViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
