@@ -4,7 +4,7 @@ import com.example.appfilmecatalogo.domain.models.Lives
 
 enum class FilterTypes {
     VOTES_AVERAGE {
-        override fun FilterTypes(list: Lives): Lives {
+        override fun filterTypes(list: Lives): Lives {
             list.results.sortByDescending {
                 it.vote_average
             }
@@ -12,7 +12,7 @@ enum class FilterTypes {
         }
     },
     POPULARITY {
-        override fun FilterTypes(list: Lives): Lives {
+        override fun filterTypes(list: Lives): Lives {
             list.results.sortByDescending {
                 it.popularity
             }
@@ -20,7 +20,7 @@ enum class FilterTypes {
         }
     },
     RELEASE_DATE {
-        override fun FilterTypes(list: Lives): Lives {
+        override fun filterTypes(list: Lives): Lives {
             list.results.sortByDescending {
                 it.release_date
             }
@@ -28,7 +28,7 @@ enum class FilterTypes {
         }
     },
     TITLE {
-        override fun FilterTypes(list: Lives): Lives {
+        override fun filterTypes(list: Lives): Lives {
             list.results.sortBy {
                 it.title
             }
@@ -36,5 +36,5 @@ enum class FilterTypes {
         }
     };
 
-    abstract fun FilterTypes(list: Lives): Lives
+    abstract fun filterTypes(list: Lives): Lives
 }
