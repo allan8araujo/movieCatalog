@@ -1,7 +1,6 @@
 package com.example.appfilmecatalogo.presenter.viewmodel.Movie
 
 import android.graphics.Bitmap
-import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

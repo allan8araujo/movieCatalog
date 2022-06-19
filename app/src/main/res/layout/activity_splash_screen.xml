@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presenter.view.SplashScreenActivity"
-    android:contentDescription="@string/hey_we_re_still_opening_wait_a_bit">
+    android:contentDescription="@string/hey_we_re_still_opening_wait_a_bit"
+    tools:context=".presenter.activities.SplashScreenActivity">
 
     <TextView
         android:id="@+id/text_logo"

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppFilmeCatalogo">
 
         <activity
-            android:name=".presenter.view.SplashScreenActivity"
+            android:name=".presenter.activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presenter.view.ListActivity"
+            android:name=".presenter.activities.ListActivity"
             android:exported="true" />
 
         <meta-data

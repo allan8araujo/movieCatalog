@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.presenter.view
+package com.example.appfilmecatalogo.presenter.activities
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -18,9 +18,6 @@ class ListActivity : AppCompatActivity() {
     private val movieDetailsViewModel: MovieDetailsViewModel by viewModels()
     private val biding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
-    }
-    private val controller by lazy {
-        findNavController(R.id.fragment_container)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

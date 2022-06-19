@@ -9,7 +9,7 @@
         android:id="@+id/movieListFragment"
         android:name="com.example.appfilmecatalogo.presenter.fragments.MovieListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/listFragment_to_listDetail"
             app:destination="@id/movieDetailFragment"
@@ -20,7 +20,7 @@
         android:id="@+id/movieDetailFragment"
         android:name="com.example.appfilmecatalogo.presenter.fragments.MovieDetailFragment"
         android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" >
+        tools:layout="@layout/fragment_movie_detail">
         <action
             android:id="@+id/movieDetailFragment_to_DetailImageFragment"
             app:destination="@id/movieDetailImageFragment"
@@ -36,7 +36,7 @@
         android:id="@+id/movieDetailImageFragment"
         android:name="com.example.appfilmecatalogo.presenter.fragments.MovieDetailImageFragment"
         android:label="fragment_movie_detail_image"
-        tools:layout="@layout/fragment_movie_detail_image" >
+        tools:layout="@layout/fragment_movie_detail_image">
         <action
             android:id="@+id/back_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"

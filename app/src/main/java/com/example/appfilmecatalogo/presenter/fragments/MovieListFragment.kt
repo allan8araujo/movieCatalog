@@ -9,18 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.appfilmecatalogo.R
+import com.example.appfilmecatalogo.data.api.RetrofitInstance
 import com.example.appfilmecatalogo.databinding.FragmentListBinding
 import com.example.appfilmecatalogo.domain.models.Lives
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
 import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
-import com.example.appfilmecatalogo.data.api.RetrofitInstance
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 
-class MovieListFragment : Fragment(), View.OnClickListener {
+class MovieListFragment : Fragment() {
 
+    private lateinit var binding: FragmentListBinding
     private val movielistAdapter = MovieItemAdapter()
     private val movieListViewModel: MovieListViewModel by activityViewModels {
         MovieViewModelFactory(RetrofitInstance.movieRepository)
@@ -31,13 +32,15 @@ class MovieListFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val binding = FragmentListBinding.inflate(layoutInflater)
+        binding = FragmentListBinding.inflate(layoutInflater)
         val view = binding.root
 
-        binding.imgMenu.setOnClickListener(this)
+        movielistAdapter.onClickListener = { onClick ->
+            goToMovieDetails(onClick)
+        }
 
-        movielistAdapter.onClickListener = { movieId ->
-            goToMovieDetails(movieId)
+        binding.imgMenu.setOnClickListener { onClick ->
+            settingUpMenu(onClick)
         }
 
         binding.movieItemRecyclerView.adapter = movielistAdapter
@@ -76,42 +79,42 @@ class MovieListFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun setListAdapter(list: Lives) {
-        movielistAdapter.submitList(list.results)
+    private fun setListAdapter(list: Lives?) {
+        movielistAdapter.submitList(list?.results?.toMutableList()){
+            binding.movieItemRecyclerView.smoothScrollToPosition(0)
+        }
     }
 
-    override fun onClick(view: View) {
-        if (view.id == R.id.img_menu) {
-            val popupmenu = PopupMenu(context, view)
-            popupmenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.item1 -> {
-                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
-                            if (moveApiResult is MovieResult.Sucess) {
-                                FilterTypes.POPULARITY.filterTypes(moveApiResult.data)
-                            }
-                        }
-                        true
-                    }
-                    R.id.item2 -> {
-                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
-                            if (moveApiResult is MovieResult.Sucess)
-                                FilterTypes.RELEASE_DATE.filterTypes(moveApiResult.data)
-                        }
-                        true
-                    }
-                    R.id.item3 -> {
-                        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
-                            if (moveApiResult is MovieResult.Sucess)
-                                FilterTypes.TITLE.filterTypes(moveApiResult.data)
-                        }
-                        true
-                    }
-                    else -> false
+    private fun settingUpMenu(view: View) {
+        val popupmenu = PopupMenu(context, view)
+        popupmenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.item1 -> {
+                    filterType(FilterTypes.POPULARITY)
+                    true
                 }
+                R.id.item2 -> {
+                    filterType(FilterTypes.RELEASE_DATE)
+                    true
+                }
+                R.id.item3 -> {
+                    filterType(FilterTypes.TITLE)
+                    true
+                }
+                else -> false
             }
-            popupmenu.inflate(R.menu.menu_main)
-            popupmenu.show()
+        }
+        popupmenu.inflate(R.menu.menu_main)
+        popupmenu.show()
+    }
+
+    private fun filterType(types: FilterTypes) {
+        movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
+            var newlist: Lives? = null
+            if (moveApiResult is MovieResult.Sucess) {
+                newlist = types.filterTypes(moveApiResult.data)
+            }
+            setListAdapter(newlist)
         }
     }
 }
