@@ -80,7 +80,7 @@ class MovieListFragment : Fragment() {
     }
 
     private fun setListAdapter(list: Lives?) {
-        movielistAdapter.submitList(list?.results?.toMutableList()){
+        movielistAdapter.submitList(list?.results?.toMutableList()) {
             binding.movieItemRecyclerView.smoothScrollToPosition(0)
         }
     }

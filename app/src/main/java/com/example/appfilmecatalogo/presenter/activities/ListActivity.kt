@@ -3,8 +3,6 @@ package com.example.appfilmecatalogo.presenter.activities
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.data.api.RetrofitInstance
 import com.example.appfilmecatalogo.databinding.ActivityMainBinding
 import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
