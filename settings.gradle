@@ -16,3 +16,4 @@ rootProject.name = "appFilmeCatalogo"
 include ':app'
 include ':abstractions'
 include ':repository'
+include ':database'

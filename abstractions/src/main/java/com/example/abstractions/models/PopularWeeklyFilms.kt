@@ -1,18 +1,21 @@
 package com.example.abstractions.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
+@Entity(tableName = "movie_list")
 data class PopularWeeklyFilms(
     val adult: Boolean,
-    val backdrop_path: String, // "/tRS6jvPM9qPrrnx2KRp3ew96Yot.jpg",
+    val backdrop_path: String,
     val genre_ids: List<Int>,
-    val id: Int,
+    @PrimaryKey val id: Int,
     val original_language: String,
     val original_title: String,
     val overview: String,
     val popularity: Float,
-    val poster_path: String, // "/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-    val release_date: String, // "2022-03-01",
+    val poster_path: String,
+    val release_date: String,
     val title: String,
     val video: Boolean,
     val vote_average: Float,
