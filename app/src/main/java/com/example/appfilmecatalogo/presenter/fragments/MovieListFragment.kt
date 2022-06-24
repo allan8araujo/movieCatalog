@@ -53,14 +53,7 @@ class MovieListFragment : Fragment() {
     private fun goToMovieDetails(movieId: Int) {
         findNavController().navigate(R.id.listFragment_to_listDetail)
         movieListViewModel.movies.observe(viewLifecycleOwner) { movieresult ->
-            if (movieresult is MovieResult.Sucess) {
-                val movieselected = movieresult.data.results.find { PopularWeeklyFilms ->
-                    PopularWeeklyFilms.id == movieId
-                }
-                movieselected?.let {
-                    movieDetailViewModel.movieSelect(movieselected)
-                }
-            }
+            movieListViewModel.setMovieSelected(movieresult, movieId, movieDetailViewModel)
         }
     }
 
@@ -110,11 +103,7 @@ class MovieListFragment : Fragment() {
 
     private fun filterType(types: FilterTypes) {
         movieListViewModel.movies.observe(viewLifecycleOwner) { moveApiResult ->
-            var newlist: Lives? = null
-            if (moveApiResult is MovieResult.Sucess) {
-                newlist = types.filterTypes(moveApiResult.data)
-            }
-            setListAdapter(newlist)
+            setListAdapter(movieListViewModel.setFilteredList(moveApiResult, types))
         }
     }
 }

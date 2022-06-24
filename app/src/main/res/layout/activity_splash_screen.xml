@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="@string/hey_we_re_still_opening_wait_a_bit"
-    tools:context=".presenter.activities.SplashScreenActivity">
+    tools:context=".presenter.SplashScreenActivity">
 
     <TextView
         android:id="@+id/text_logo"

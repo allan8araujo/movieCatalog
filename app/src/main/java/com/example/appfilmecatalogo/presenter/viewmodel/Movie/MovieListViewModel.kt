@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.appfilmecatalogo.data.repository.IMovieRepository
 import com.example.appfilmecatalogo.domain.models.Lives
 import com.example.appfilmecatalogo.domain.models.mockLives
+import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +30,33 @@ class MovieListViewModel(
             } catch (e: Exception) {
                 val movieResult = MovieResult.Error<Lives>(e, mockLives())
                 livelist.value = movieResult
+            }
+        }
+    }
+
+    fun setFilteredList(
+        moveApiResult: MovieResult<Lives>?,
+        types: FilterTypes,
+    ): Lives? {
+        var newlist: Lives? = null
+        var newlist1 = newlist
+        if (moveApiResult is MovieResult.Sucess) {
+            newlist1 = types.filterTypes(moveApiResult.data)
+        }
+        return newlist1
+    }
+
+    fun setMovieSelected(
+        movieresult: MovieResult<Lives>?,
+        movieId: Int,
+        movieDetailViewModel: MovieDetailsViewModel
+    ) {
+        if (movieresult is MovieResult.Sucess) {
+            val movieselected = movieresult.data.results.find { PopularWeeklyFilms ->
+                PopularWeeklyFilms.id == movieId
+            }
+            movieselected?.let {
+                movieDetailViewModel.movieSelect(movieselected)
             }
         }
     }

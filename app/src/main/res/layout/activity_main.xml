@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9B72AA"
-    tools:context=".presenter.activities.ListActivity">
+    tools:context=".presenter.ListActivity">
 
     <fragment
         android:id="@+id/fragment_container"

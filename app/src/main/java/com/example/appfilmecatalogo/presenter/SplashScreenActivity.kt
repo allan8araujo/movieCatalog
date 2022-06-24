@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.presenter.activities
+package com.example.appfilmecatalogo.presenter
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.presenter.activities
+package com.example.appfilmecatalogo.presenter
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -10,10 +10,6 @@ import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewMo
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 
 class ListActivity : AppCompatActivity() {
-    private val movieViewModel: MovieListViewModel by viewModels {
-        MovieViewModelFactory(RetrofitInstance.movieRepository)
-    }
-    private val movieDetailsViewModel: MovieDetailsViewModel by viewModels()
     private val biding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }

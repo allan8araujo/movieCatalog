@@ -28,6 +28,7 @@ class MovieDetailFragment : Fragment() {
         val view = binding.root
 
         binding.movieDescription.movementMethod = ScrollingMovementMethod()
+
         binding.imageBack.setOnClickListener {
             findNavController().navigate(R.id.back_to_movieListFragment)
         }
