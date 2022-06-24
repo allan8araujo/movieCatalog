@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
-import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.presenter.adapters.ImageDetailListener
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 
@@ -49,7 +49,7 @@ class MovieDetailFragment : Fragment() {
         return view
     }
 
-    private fun setDataDetailsActivity(binding: FragmentMovieDetailBinding): PopularWeeklyFilms? {
+    private fun setDataDetailsActivity(binding: FragmentMovieDetailBinding): com.example.abstractions.models.PopularWeeklyFilms? {
         val selectedMovie = movieDetailsViewModel.selectedMovie
         val movieTitle = selectedMovie.value?.title
         val movieVoteAverage = selectedMovie.value?.vote_average

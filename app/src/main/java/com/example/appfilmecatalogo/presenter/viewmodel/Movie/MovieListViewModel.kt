@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.appfilmecatalogo.data.repository.IMovieRepository
-import com.example.appfilmecatalogo.domain.models.Lives
-import com.example.appfilmecatalogo.domain.models.mockLives
+import com.example.repository.api.repository.IMovieRepository
+import com.example.abstractions.models.Lives
+import com.example.abstractions.models.mockLives
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +28,8 @@ class MovieListViewModel(
                 }
                 livelist.value = MovieResult.Sucess(movieFromApi)
             } catch (e: Exception) {
-                val movieResult = MovieResult.Error<Lives>(e, mockLives())
+                val movieResult = MovieResult.Error<Lives>(e,
+                    mockLives())
                 livelist.value = movieResult
             }
         }

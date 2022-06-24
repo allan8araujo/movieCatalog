@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.domain.utils
+package com.example.repository.api
 
 object Constants {
     const val BASE_URL = "https://api.themoviedb.org/"

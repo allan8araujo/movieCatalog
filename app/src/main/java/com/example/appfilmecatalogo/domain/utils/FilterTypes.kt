@@ -1,6 +1,6 @@
 package com.example.appfilmecatalogo.domain.utils
 
-import com.example.appfilmecatalogo.domain.models.Lives
+import com.example.abstractions.models.Lives
 
 enum class FilterTypes {
     VOTES_AVERAGE {

@@ -1,19 +1,19 @@
 package com.example.appfilmecatalogo.presenter.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.abstractions.models.PopularWeeklyFilms
 
-class DiffCallBack : DiffUtil.ItemCallback<PopularWeeklyFilms>() {
+class DiffCallBack : DiffUtil.ItemCallback<com.example.abstractions.models.PopularWeeklyFilms>() {
     override fun areItemsTheSame(
-        oldItem: PopularWeeklyFilms,
-        newItem: PopularWeeklyFilms,
+        oldItem: com.example.abstractions.models.PopularWeeklyFilms,
+        newItem: com.example.abstractions.models.PopularWeeklyFilms,
     ): Boolean {
         return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(
-        oldItem: PopularWeeklyFilms,
-        newItem: PopularWeeklyFilms,
+        oldItem: com.example.abstractions.models.PopularWeeklyFilms,
+        newItem: com.example.abstractions.models.PopularWeeklyFilms,
     ): Boolean {
         return oldItem == newItem
     }

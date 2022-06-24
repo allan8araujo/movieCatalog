@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.domain.models
+package com.example.abstractions.models
 
 data class Lives(
     val page: Int,

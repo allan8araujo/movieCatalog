@@ -4,16 +4,16 @@ import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.abstractions.models.PopularWeeklyFilms
 
 class MovieDetailsViewModel : ViewModel() {
-    private val mutableSelectedMovie = MutableLiveData<PopularWeeklyFilms>()
-    val selectedMovie: LiveData<PopularWeeklyFilms> get() = mutableSelectedMovie
+    private val mutableSelectedMovie = MutableLiveData<com.example.abstractions.models.PopularWeeklyFilms>()
+    val selectedMovie: LiveData<com.example.abstractions.models.PopularWeeklyFilms> get() = mutableSelectedMovie
 
     private val mutableGlideImage = MutableLiveData<Bitmap?>()
     val selectedImage: LiveData<Bitmap?> get() = mutableGlideImage
 
-    fun movieSelect(movie: PopularWeeklyFilms) {
+    fun movieSelect(movie: com.example.abstractions.models.PopularWeeklyFilms) {
         mutableSelectedMovie.value = movie
     }
 

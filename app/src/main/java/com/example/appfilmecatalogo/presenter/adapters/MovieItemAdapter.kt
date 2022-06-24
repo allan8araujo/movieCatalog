@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
-import com.example.appfilmecatalogo.domain.models.PopularWeeklyFilms
+import com.example.abstractions.models.PopularWeeklyFilms
 
 class MovieItemAdapter :
-    ListAdapter<PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DiffCallBack()) {
+    ListAdapter<com.example.abstractions.models.PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DiffCallBack()) {
 
     var onClickListener: ((movieId: Int) -> Unit)? = null
 
@@ -28,7 +28,7 @@ class MovieItemAdapter :
         private val biding: ListMoviesItemBinding,
         private val onClickListener: ((movieId: Int) -> Unit)?,
     ) : RecyclerView.ViewHolder(biding.root) {
-        fun bind(movie: PopularWeeklyFilms) {
+        fun bind(movie: com.example.abstractions.models.PopularWeeklyFilms) {
             biding.textMovieTitle.text = movie.title
             Glide
                 .with(biding.root.context)

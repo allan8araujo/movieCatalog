@@ -8,23 +8,24 @@ import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.abstractions.models.Lives
 import com.example.appfilmecatalogo.R
-import com.example.appfilmecatalogo.data.api.RetrofitInstance
+import com.example.appfilmecatalogo.data.MovieRepository
 import com.example.appfilmecatalogo.databinding.FragmentListBinding
-import com.example.appfilmecatalogo.domain.models.Lives
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
 import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
+import com.example.repository.api.RetrofitInstance
 
 class MovieListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private val movielistAdapter = MovieItemAdapter()
     private val movieListViewModel: MovieListViewModel by activityViewModels {
-        MovieViewModelFactory(RetrofitInstance.movieRepository)
+        MovieViewModelFactory(MovieRepository(RetrofitInstance.movieRepository))
     }
     private val movieDetailViewModel: MovieDetailsViewModel by activityViewModels()
     override fun onCreateView(

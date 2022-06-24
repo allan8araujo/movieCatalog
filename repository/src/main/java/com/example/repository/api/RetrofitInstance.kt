@@ -1,7 +1,5 @@
-package com.example.appfilmecatalogo.data.api
+package com.example.repository.api
 
-import com.example.appfilmecatalogo.data.repository.MovieRepository
-import com.example.appfilmecatalogo.domain.utils.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,6 +16,6 @@ class RetrofitInstance {
         private val movieClient: RetrofitService by lazy {
             retrofitInstanceMain.create(RetrofitService::class.java)
         }
-        val movieRepository = MovieRepository(movieClient)
+        val movieRepository = movieClient
     }
 }
