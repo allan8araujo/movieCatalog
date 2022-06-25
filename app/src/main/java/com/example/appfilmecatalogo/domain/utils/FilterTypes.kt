@@ -5,7 +5,7 @@ import com.example.abstractions.models.Lives
 enum class FilterTypes {
     VOTES_AVERAGE {
         override fun filterTypes(list: Lives): Lives {
-            list.results.sortByDescending {
+            list.results?.sortByDescending {
                 it.vote_average
             }
             return list
@@ -13,7 +13,7 @@ enum class FilterTypes {
     },
     POPULARITY {
         override fun filterTypes(list: Lives): Lives {
-            list.results.sortByDescending {
+            list.results?.sortByDescending {
                 it.popularity
             }
             return list
@@ -21,7 +21,7 @@ enum class FilterTypes {
     },
     RELEASE_DATE {
         override fun filterTypes(list: Lives): Lives {
-            list.results.sortByDescending {
+            list.results?.sortByDescending {
                 it.release_date
             }
             return list
@@ -29,7 +29,7 @@ enum class FilterTypes {
     },
     TITLE {
         override fun filterTypes(list: Lives): Lives {
-            list.results.sortBy {
+            list.results?.sortBy {
                 it.title
             }
             return list

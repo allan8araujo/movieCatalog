@@ -1,12 +1,9 @@
 package com.example.appfilmecatalogo.presenter.viewmodel.Movie
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.repository.api.repository.IMovieRepository
+import androidx.lifecycle.*
 import com.example.abstractions.models.Lives
-import com.example.abstractions.models.mockLives
+import com.example.abstractions.models.PopularWeeklyFilms
+import com.example.appfilmecatalogo.data.MovieRepository
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
@@ -14,12 +11,23 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieListViewModel(
-    private val movieRepository: IMovieRepository,
+    private val movieRepository: MovieRepository,
 ) : ViewModel() {
     private val livelist = MutableLiveData<MovieResult<Lives>>()
     val movies: LiveData<MovieResult<Lives>> = livelist
 
-    fun getAllLives() {
+    init {
+        getAllMovies()
+    }
+
+    val allRecordedMovies: LiveData<MutableList<PopularWeeklyFilms>>? =
+        movieRepository.allMovies?.asLiveData()
+
+    suspend fun insertToDB(movie: PopularWeeklyFilms) {
+        movieRepository.insertToDB(movie)
+    }
+
+    fun getAllMovies() {
         viewModelScope.launch {
             livelist.value = MovieResult.Loading()
             try {
@@ -27,9 +35,14 @@ class MovieListViewModel(
                     movieRepository.getAllLives()
                 }
                 livelist.value = MovieResult.Sucess(movieFromApi)
+                movieFromApi.results?.forEach { popularWeeklyFilms ->
+                    insertToDB(popularWeeklyFilms)
+                }
             } catch (e: Exception) {
-                val movieResult = MovieResult.Error<Lives>(e,
-                    mockLives())
+                val movieResult = MovieResult.Error<Lives>(
+                    e,
+                    Lives(results = allRecordedMovies?.value)
+                )
                 livelist.value = movieResult
             }
         }
@@ -39,7 +52,7 @@ class MovieListViewModel(
         moveApiResult: MovieResult<Lives>?,
         types: FilterTypes,
     ): Lives? {
-        var newlist: Lives? = null
+        val newlist: Lives? = null
         var newlist1 = newlist
         if (moveApiResult is MovieResult.Sucess) {
             newlist1 = types.filterTypes(moveApiResult.data)
@@ -47,18 +60,36 @@ class MovieListViewModel(
         return newlist1
     }
 
-    fun setMovieSelected(
+    fun setMovieDetails(
         movieresult: MovieResult<Lives>?,
         movieId: Int,
-        movieDetailViewModel: MovieDetailsViewModel
+        movieDetailViewModel: MovieDetailsViewModel,
     ) {
-        if (movieresult is MovieResult.Sucess) {
-            val movieselected = movieresult.data.results.find { PopularWeeklyFilms ->
-                PopularWeeklyFilms.id == movieId
+        when (movieresult) {
+            is MovieResult.Loading -> {
             }
-            movieselected?.let {
-                movieDetailViewModel.movieSelect(movieselected)
+            is MovieResult.Sucess -> {
+                setMovieSelected(movieresult.data, movieId, movieDetailViewModel)
+            }
+            is MovieResult.Error -> {
+                setMovieSelected(
+                    movieresult.data, movieId, movieDetailViewModel
+                )
             }
         }
     }
+
+    fun setMovieSelected(
+        movieResult: Lives?,
+        movieId: Int,
+        movieDetailViewModel: MovieDetailsViewModel,
+    ) {
+        val movieselected = movieResult?.results?.find { PopularWeeklyFilms ->
+            PopularWeeklyFilms.id == movieId
+        }
+        movieselected?.let {
+            movieDetailViewModel.mutableSelectedMovie.value = movieselected
+        }
+    }
+
 }

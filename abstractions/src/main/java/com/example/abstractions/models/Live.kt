@@ -1,19 +1,18 @@
 package com.example.abstractions.models
 
 data class Lives(
-    val page: Int,
-    val results: MutableList<PopularWeeklyFilms>,
-    val total_pages: Int,
-    val total_results: Int,
+    val page: Int? = null,
+    val results: MutableList<PopularWeeklyFilms>?,
+    val total_pages: Int? = null,
+    val total_results: Int? = null,
 )
 
-fun mockLives() = Lives(
+fun emptyLiveList() = Lives(
     1,
     mutableListOf(
         PopularWeeklyFilms(
             true,
             "a",
-            listOf(33, 2, 1),
             3,
             "en",
             "2",
@@ -30,7 +29,6 @@ fun mockLives() = Lives(
         PopularWeeklyFilms(
             true,
             "c",
-            listOf(33, 2, 1),
             4,
             "en",
             "2",
@@ -47,7 +45,6 @@ fun mockLives() = Lives(
         PopularWeeklyFilms(
             true,
             "b",
-            listOf(33, 2, 1),
             4,
             "en",
             "2",
@@ -64,7 +61,6 @@ fun mockLives() = Lives(
         PopularWeeklyFilms(
             true,
             "filme",
-            listOf(33, 2, 1),
             4,
             "en",
             "2",

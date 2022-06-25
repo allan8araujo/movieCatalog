@@ -15,22 +15,24 @@ class MovieDataBase {
         exportSchema = false
     )
     @TypeConverters(Converters::class)
-    abstract class MovieDataBase : RoomDatabase() {
+    abstract class MovieRoomDataBase : RoomDatabase() {
         abstract fun appDao(): MovieDao
 
         companion object {
             @Volatile
-            private var INSTANCE: MovieDataBase? = null
-            fun getDataBase(context: Context): MovieDataBase {
-                return INSTANCE ?: synchronized(this) {
-                    val instance = Room.databaseBuilder(
+            private var DB_INSTANCE: MovieRoomDataBase? = null
+
+            fun getDataBase(context: Context): MovieRoomDataBase {
+                if (DB_INSTANCE == null) {
+                    DB_INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        MovieDataBase::class.java,
+                        MovieRoomDataBase::class.java,
                         "cat_database"
-                    ).build()
-                    INSTANCE = instance
-                    instance
+                    )
+                        .allowMainThreadQueries()
+                        .build()
                 }
+                return DB_INSTANCE!!
             }
         }
     }

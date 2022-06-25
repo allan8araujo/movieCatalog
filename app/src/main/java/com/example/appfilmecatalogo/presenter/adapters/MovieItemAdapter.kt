@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
-import com.example.abstractions.models.PopularWeeklyFilms
 
 class MovieItemAdapter :
-    ListAdapter<com.example.abstractions.models.PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(DiffCallBack()) {
+    ListAdapter<com.example.abstractions.models.PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(
+        DiffCallBack()
+    ) {
 
     var onClickListener: ((movieId: Int) -> Unit)? = null
 

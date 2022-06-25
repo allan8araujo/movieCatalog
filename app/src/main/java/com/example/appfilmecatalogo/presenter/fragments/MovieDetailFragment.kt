@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
-import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.presenter.adapters.ImageDetailListener
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 
@@ -24,7 +24,7 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         val binding = FragmentMovieDetailBinding.inflate(layoutInflater, container, false)
-        setDataDetailsActivity(binding)
+        val movieSelected = setDataAndObserve(binding)
         val view = binding.root
 
         binding.movieDescription.movementMethod = ScrollingMovementMethod()
@@ -36,28 +36,26 @@ class MovieDetailFragment : Fragment() {
             findNavController().navigate(R.id.movieDetailFragment_to_DetailImageFragment)
         }
 
-        val movieSelected = setDataDetailsActivity(binding)
 
         val overview = movieSelected?.overview
         binding.movieDescription.text = overview
-        Glide.with(binding.root.context)
-            .load("https://image.tmdb.org/t/p/original" + movieSelected?.poster_path)
-            .placeholder(R.drawable.loading_details)
-            .centerCrop()
-            .listener(ImageDetailListener(movieDetailsViewModel))
-            .into(binding.movieImage)
         return view
     }
 
-    private fun setDataDetailsActivity(binding: FragmentMovieDetailBinding): com.example.abstractions.models.PopularWeeklyFilms? {
-        val selectedMovie = movieDetailsViewModel.selectedMovie
-        val movieTitle = selectedMovie.value?.title
-        val movieVoteAverage = selectedMovie.value?.vote_average
-        val movieReleaseDate = selectedMovie.value?.release_date
+    private fun setDataAndObserve(binding: FragmentMovieDetailBinding): PopularWeeklyFilms? {
+        movieDetailsViewModel.mutableSelectedMovie.observe(viewLifecycleOwner) { movieSelected ->
+            binding.textMovieTitleDetails.text = movieSelected.title
+            binding.releaseDate.text = "Release date: ${movieSelected.release_date}"
+            binding.voteAverage.text = movieSelected.vote_average.toString()
 
-        binding.textMovieTitleDetails.text = movieTitle
-        binding.releaseDate.text = "Release date: $movieReleaseDate"
-        binding.voteAverage.text = movieVoteAverage.toString()
-        return selectedMovie.value
+
+            Glide.with(binding.root.context)
+                .load("https://image.tmdb.org/t/p/original" + movieSelected?.poster_path)
+                .placeholder(R.drawable.loading_details)
+                .centerCrop()
+                .listener(ImageDetailListener(movieDetailsViewModel))
+                .into(binding.movieImage)
+        }
+        return movieDetailsViewModel.mutableSelectedMovie.value
     }
 }

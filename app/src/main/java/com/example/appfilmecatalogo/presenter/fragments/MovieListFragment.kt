@@ -18,16 +18,19 @@ import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
 import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
+import com.example.database.MovieDataBase
 import com.example.repository.api.RetrofitInstance
 
 class MovieListFragment : Fragment() {
-
     private lateinit var binding: FragmentListBinding
     private val movielistAdapter = MovieItemAdapter()
+    private val database by lazy { MovieDataBase.MovieRoomDataBase.getDataBase(requireContext()) }
+    private val api by lazy { RetrofitInstance }
     private val movieListViewModel: MovieListViewModel by activityViewModels {
-        MovieViewModelFactory(MovieRepository(RetrofitInstance.movieRepository))
+        MovieViewModelFactory(MovieRepository(api.movieRepository, database.appDao()))
     }
     private val movieDetailViewModel: MovieDetailsViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,17 +48,17 @@ class MovieListFragment : Fragment() {
         }
 
         binding.movieItemRecyclerView.adapter = movielistAdapter
-        movieListViewModel.getAllLives()
+        movieListViewModel.getAllMovies()
         getMovieAndObserve()
 
         return view
     }
 
     private fun goToMovieDetails(movieId: Int) {
-        findNavController().navigate(R.id.listFragment_to_listDetail)
         movieListViewModel.movies.observe(viewLifecycleOwner) { movieresult ->
-            movieListViewModel.setMovieSelected(movieresult, movieId, movieDetailViewModel)
+            movieListViewModel.setMovieDetails(movieresult, movieId, movieDetailViewModel)
         }
+        findNavController().navigate(R.id.listFragment_to_listDetail)
     }
 
     private fun getMovieAndObserve() {
@@ -67,7 +70,9 @@ class MovieListFragment : Fragment() {
                     setListAdapter(movieApiResult.data)
                 }
                 is MovieResult.Error -> {
-                    setListAdapter(movieApiResult.emptyLive)
+                    movieListViewModel.allRecordedMovies?.observe(viewLifecycleOwner) { it ->
+                        setListAdapter(Lives(results = it))
+                    }
                 }
             }
         }
