@@ -1,5 +1,6 @@
 package com.example.appfilmecatalogo.presenter.viewmodel.Movie
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.abstractions.models.Lives
 import com.example.abstractions.models.PopularWeeklyFilms
@@ -9,10 +10,12 @@ import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.DecimalFormat
 
 class MovieListViewModel(
     private val movieRepository: MovieRepository,
 ) : ViewModel() {
+    var mutableSelectedMovie = MutableLiveData<PopularWeeklyFilms?>()
     private val livelist = MutableLiveData<MovieResult<Lives>>()
     val movies: LiveData<MovieResult<Lives>> = livelist
 
@@ -56,6 +59,8 @@ class MovieListViewModel(
         var newlist1 = newlist
         if (moveApiResult is MovieResult.Sucess) {
             newlist1 = types.filterTypes(moveApiResult.data)
+        } else if (moveApiResult is MovieResult.Error) {
+            newlist1 = types.filterTypes(moveApiResult.data)
         }
         return newlist1
     }
@@ -63,18 +68,17 @@ class MovieListViewModel(
     fun setMovieDetails(
         movieresult: MovieResult<Lives>?,
         movieId: Int,
-        movieDetailViewModel: MovieDetailsViewModel,
     ) {
         when (movieresult) {
             is MovieResult.Loading -> {
             }
             is MovieResult.Sucess -> {
-                setMovieSelected(movieresult.data, movieId, movieDetailViewModel)
+                setMovieSelected(movieresult.data, movieId)
+                Log.d("online", "ta on")
             }
             is MovieResult.Error -> {
-                setMovieSelected(
-                    movieresult.data, movieId, movieDetailViewModel
-                )
+                setMovieSelected(Lives(results = allRecordedMovies?.value), movieId)
+                Log.d("offline", "ta off")
             }
         }
     }
@@ -82,14 +86,11 @@ class MovieListViewModel(
     fun setMovieSelected(
         movieResult: Lives?,
         movieId: Int,
-        movieDetailViewModel: MovieDetailsViewModel,
     ) {
-        val movieselected = movieResult?.results?.find { PopularWeeklyFilms ->
+        mutableSelectedMovie.value = movieResult?.results?.find { PopularWeeklyFilms ->
             PopularWeeklyFilms.id == movieId
         }
-        movieselected?.let {
-            movieDetailViewModel.mutableSelectedMovie.value = movieselected
-        }
+        mutableSelectedMovie.value?.vote_average =
+            "%,.2f".format(mutableSelectedMovie.value?.vote_average).toFloat()
     }
-
 }

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.abstractions.models.PopularWeeklyFilms
 
 class MovieDetailsViewModel : ViewModel() {
-    var mutableSelectedMovie = MutableLiveData<PopularWeeklyFilms>()
 
     private val mutableGlideImage = MutableLiveData<Bitmap?>()
     val selectedImage: LiveData<Bitmap?> get() = mutableGlideImage

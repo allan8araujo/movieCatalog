@@ -29,7 +29,6 @@ class MovieListFragment : Fragment() {
     private val movieListViewModel: MovieListViewModel by activityViewModels {
         MovieViewModelFactory(MovieRepository(api.movieRepository, database.appDao()))
     }
-    private val movieDetailViewModel: MovieDetailsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +55,7 @@ class MovieListFragment : Fragment() {
 
     private fun goToMovieDetails(movieId: Int) {
         movieListViewModel.movies.observe(viewLifecycleOwner) { movieresult ->
-            movieListViewModel.setMovieDetails(movieresult, movieId, movieDetailViewModel)
+            movieListViewModel.setMovieDetails(movieresult, movieId)
         }
         findNavController().navigate(R.id.listFragment_to_listDetail)
     }
