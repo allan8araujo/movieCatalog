@@ -10,7 +10,6 @@ import com.example.appfilmecatalogo.domain.utils.MovieResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.text.DecimalFormat
 
 class MovieListViewModel(
     private val movieRepository: MovieRepository,
