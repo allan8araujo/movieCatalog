@@ -6,38 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".presenter.fragments.MovieListFragment">
 
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        app:title="Trending Movies"
+        app:titleCentered="true"
+        app:titleTextColor="@color/white"
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/application_title_trending_movies"
-
-        android:fontFamily="@font/poppins_extralight"
-        android:shadowColor="@color/black"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="15"
-        android:text="@string/movies"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/img_menu"
-        android:layout_width="34dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/more_filters"
-        android:src="@drawable/ic_baseline_more_vert_24"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <View
         android:id="@+id/view"
@@ -56,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         tools:itemCount="3"
         tools:listitem="@layout/list_movies_item" />
 

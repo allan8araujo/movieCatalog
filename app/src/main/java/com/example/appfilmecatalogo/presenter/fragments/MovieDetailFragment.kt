@@ -42,7 +42,7 @@ class MovieDetailFragment : Fragment() {
         return view
     }
 
-    private fun setDataAndObserve(binding: FragmentMovieDetailBinding): PopularWeeklyFilms? {
+    private fun setDataAndObserve(binding: FragmentMovieDetailBinding) {
         movieListViewModel.mutableSelectedMovie.observe(viewLifecycleOwner) { movieSelected ->
             binding.textMovieTitleDetails.text = movieSelected?.title
             binding.releaseDate.text = "Release date: ${movieSelected?.release_date}"
@@ -58,6 +58,5 @@ class MovieDetailFragment : Fragment() {
             val overview = movieSelected?.overview
             binding.movieDescription.text = overview
         }
-        return movieListViewModel.mutableSelectedMovie.value
     }
 }

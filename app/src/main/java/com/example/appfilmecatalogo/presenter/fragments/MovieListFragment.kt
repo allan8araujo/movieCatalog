@@ -1,13 +1,13 @@
 package com.example.appfilmecatalogo.presenter.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.PopupMenu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.abstractions.models.Lives
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.data.MovieRepository
@@ -37,20 +37,16 @@ class MovieListFragment : Fragment() {
     ): View {
         binding = FragmentListBinding.inflate(layoutInflater)
         val view = binding.root
-
+        setHasOptionsMenu(true)
         movielistAdapter.onClickListener = { onClick ->
             goToMovieDetails(onClick)
         }
-
-        binding.imgMenu.setOnClickListener { onClick ->
-            settingUpMenu(onClick)
-        }
-
         binding.movieItemRecyclerView.adapter = movielistAdapter
         movieListViewModel.getAllMovies()
-        getMovieAndObserve()
+                getMovieAndObserve()
 
-        return view
+        (activity as AppCompatActivity).setSupportActionBar(binding.materialToolbar)
+            return view
     }
 
     private fun goToMovieDetails(movieId: Int) {
@@ -58,6 +54,27 @@ class MovieListFragment : Fragment() {
             movieListViewModel.setMovieDetails(movieresult, movieId)
         }
         findNavController().navigate(R.id.listFragment_to_listDetail)
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item1 -> {
+                filterType(FilterTypes.POPULARITY)
+            }
+            R.id.item2 -> {
+                filterType(FilterTypes.RELEASE_DATE)
+            }
+            R.id.item3 -> {
+                filterType(FilterTypes.TITLE)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun getMovieAndObserve() {

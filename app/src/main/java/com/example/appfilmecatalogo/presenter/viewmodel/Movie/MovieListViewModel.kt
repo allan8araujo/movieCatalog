@@ -25,7 +25,7 @@ class MovieListViewModel(
     val allRecordedMovies: LiveData<MutableList<PopularWeeklyFilms>>? =
         movieRepository.allMovies?.asLiveData()
 
-    suspend fun insertToDB(movie: PopularWeeklyFilms) {
+    private suspend fun insertToDB(movie: PopularWeeklyFilms) {
         movieRepository.insertToDB(movie)
     }
 
@@ -54,8 +54,7 @@ class MovieListViewModel(
         moveApiResult: MovieResult<Lives>?,
         types: FilterTypes,
     ): Lives? {
-        val newlist: Lives? = null
-        var newlist1 = newlist
+        var newlist1: Lives? = null
         if (moveApiResult is MovieResult.Sucess) {
             newlist1 = types.filterTypes(moveApiResult.data)
         } else if (moveApiResult is MovieResult.Error) {
@@ -79,10 +78,11 @@ class MovieListViewModel(
                 setMovieSelected(Lives(results = allRecordedMovies?.value), movieId)
                 Log.d("offline", "ta off")
             }
+            else -> {}
         }
     }
 
-    fun setMovieSelected(
+    private fun setMovieSelected(
         movieResult: Lives?,
         movieId: Int,
     ) {
