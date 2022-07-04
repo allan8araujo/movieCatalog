@@ -27,9 +27,20 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   ## Gif about the app flow
 ![167498061-9cf29a96-ba82-4352-aa20-de1042c5d801-_online-video-cutter com_](https://user-images.githubusercontent.com/77680596/168090834-afc0155a-0b13-415a-9328-aa79b4055d59.gif)
 
-
 ## Mp4 link
 Layout until now:
 
 https://user-images.githubusercontent.com/77680596/169375688-eeee6ffb-d2c7-4372-ad12-c0956c6a94b9.mp4
 
+
+
+# Libraries
+• [View Binding](https://developer.android.com/topic/libraries/view-binding)
+
+• [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel#sharing)
+
+• [Navigation Architecture Component](https://developer.android.com/guide/navigation)
+
+• [Lifecycle Architecture component](https://developer.android.com/topic/libraries/architecture/lifecycle)
+
+• [Glide v4.13](https://github.com/bumptech/glide)
