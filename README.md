@@ -25,14 +25,11 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   [mvvm, clean achitecture e jetpack-c.pdf](https://github.com/allan8araujo/everis-becamobile-android/files/8679150/mvvm.clean.achitecture.e.jetpack-c.pdf)
   
   ## Gif about the app flow
-![167498061-9cf29a96-ba82-4352-aa20-de1042c5d801-_online-video-cutter com_](https://user-images.githubusercontent.com/77680596/168090834-afc0155a-0b13-415a-9328-aa79b4055d59.gif)
-
-## Mp4 link
-Layout until now:
-
-https://user-images.githubusercontent.com/77680596/169375688-eeee6ffb-d2c7-4372-ad12-c0956c6a94b9.mp4
-
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/77680596/177208413-df68cf06-1b9e-44f2-8933-ab66a061a265.gif" width="30%" height="30%"/>
+  <img src="https://user-images.githubusercontent.com/77680596/177208426-1352e00b-397a-4fcb-aee0-273f7d6a6e4f.gif" width="30%" height="30%"/>
+  <img src="https://user-images.githubusercontent.com/77680596/177208418-cb420327-d220-427a-8a13-8249afd2750e.gif" width="30%" height="30%"/>
+</p>
 
 # Libraries
 • [View Binding](https://developer.android.com/topic/libraries/view-binding)
