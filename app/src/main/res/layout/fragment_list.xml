@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".presenter.fragments.MovieListFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_purple_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -26,7 +28,7 @@
             />
 
 
-    </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.navigation.NavigationView>
 
     <View
         android:id="@+id/view"

@@ -18,4 +18,11 @@
     <style name="rounded_image_style" parent="">
         <item name="cornerSize">4%</item>
     </style>
+
+    <style name="MenuTextAppearance" >
+        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
 </resources>
