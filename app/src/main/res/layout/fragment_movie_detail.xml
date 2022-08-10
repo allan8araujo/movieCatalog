@@ -6,36 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".presenter.fragments.MovieDetailFragment">
 
-    <ImageView
-        android:id="@+id/image_back"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/round_button"
-        android:elevation="2dp"
-        android:padding="5dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,MissingConstraints" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/movie_image"
         android:layout_width="match_parent"
-        android:layout_height="325dp"
+        android:layout_height="256dp"
         android:contentDescription="@string/img_movie"
         android:scaleType="centerCrop"
         android:src="@drawable/uncharted"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/image_back"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#40000000"
+        android:icon="@drawable/ic_baseline_arrow_back_24"
+        android:padding="5dp"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconGravity="textEnd"
+        app:iconSize="32dp"
+        app:iconTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text_movie_title_details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/movie_title"
         android:fontFamily="@font/roboto_light"
         android:hint="title_movie"
         android:textColor="@android:color/white"
@@ -43,15 +47,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/vote_average"
-        app:layout_constraintTop_toBottomOf="@id/movie_image" />
+        app:layout_constraintTop_toTopOf="@+id/vote_average" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
 
         android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_light"
         android:hint="release_date"
         android:textColor="@android:color/white"
@@ -59,43 +63,46 @@
         app:layout_constraintStart_toEndOf="@+id/vote_average"
         app:layout_constraintTop_toBottomOf="@id/text_movie_title_details" />
 
-    <TextView
 
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/vote_average"
-        android:layout_width="85dp"
-        android:layout_height="86dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/round_button"
         android:contentDescription="@string/movie_vote_average"
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="36sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
-    <TextView
-        android:id="@+id/movie_description"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/movie_description_sinopse"
-
-        android:fontFamily="@font/roboto_light"
-
-        android:scrollbars="vertical"
-        android:textColor="#EAEAEA"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_movie_title_details"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/vote_average">
 
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/movie_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/movie_description_sinopse"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" />
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

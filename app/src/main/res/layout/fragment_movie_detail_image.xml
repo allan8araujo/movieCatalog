@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presenter.fragments.MovieDetailImageFragment">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_detail"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -16,18 +16,22 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/image_detail_back"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/round_button"
-        android:elevation="2dp"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#40000000"
+        android:icon="@drawable/ic_baseline_arrow_back_24"
         android:padding="5dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconGravity="textEnd"
+        app:iconSize="32dp"
+        app:iconTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
