@@ -19,10 +19,15 @@
         <item name="cornerSize">4%</item>
     </style>
 
-    <style name="MenuTextAppearance" >
+    <style name="MenuTextAppearance">
         <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
 
+    </style>
+
+    <style name="MyThemeOverlay_Toolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <!-- color used by navigation icon and overflow icon -->
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 </resources>
