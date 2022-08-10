@@ -7,15 +7,26 @@
     tools:context=".presenter.fragments.MovieListFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        app:title="Trending Movies"
-        app:titleCentered="true"
-        app:titleTextColor="@color/white"
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="@string/trending_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:fontFamily="@font/poppins_extralight"
+            />
+
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <View
         android:id="@+id/view"
@@ -32,10 +43,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/movie_item_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constrainedHeight="true"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        tools:itemCount="3"
+        app:spanCount="2"
+        tools:itemCount="6"
         tools:listitem="@layout/list_movies_item" />
 
 
