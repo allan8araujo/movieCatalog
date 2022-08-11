@@ -7,8 +7,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
+import com.facebook.shimmer.ShimmerFrameLayout
 
-class ImageDetailListener(private val movieDetailsViewModel: MovieDetailsViewModel) :
+class ImageDetailListener(
+    private val shimmerFrameLayout: ShimmerFrameLayout,
+    private val movieDetailsViewModel: MovieDetailsViewModel
+) :
     RequestListener<Drawable?> {
     override fun onLoadFailed(
         e: GlideException?,
@@ -27,6 +31,7 @@ class ImageDetailListener(private val movieDetailsViewModel: MovieDetailsViewMod
         isFirstResource: Boolean,
     ): Boolean {
         movieDetailsViewModel.imageDetailSelected(resource?.toBitmap())
+        shimmerFrameLayout.hideShimmer()
         return false
     }
 }

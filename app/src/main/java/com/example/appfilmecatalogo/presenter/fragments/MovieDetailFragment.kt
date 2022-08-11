@@ -45,12 +45,13 @@ class MovieDetailFragment : Fragment() {
             binding.textMovieTitleDetails.text = movieSelected?.title
             binding.releaseDate.text = "Release date: ${movieSelected?.release_date}"
             binding.voteAverage.text = movieSelected?.vote_average.toString()
+            binding.shimmerMovieDetails.showShimmer(true)
 
             Glide.with(binding.root.context)
                 .load("https://image.tmdb.org/t/p/original" + movieSelected?.poster_path)
-                .placeholder(R.drawable.loading_details)
+                //.placeholder(R.drawable.loading_details)
                 .centerCrop()
-                .listener(ImageDetailListener(movieDetailsViewModel))
+                .listener(ImageDetailListener(binding.shimmerMovieDetails, movieDetailsViewModel))
                 .into(binding.movieImage)
 
             val overview = movieSelected?.overview

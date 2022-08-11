@@ -37,7 +37,7 @@ class MovieItemAdapter :
             Glide
                 .with(binding.root.context)
                 .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
-                .listener(GlideLoadingListener(binding.shimmerMovie, binding.imageMovie))
+                .listener(GlideLoadingListener(binding.shimmerMovie))
                 .centerCrop()
                 .into(binding.imageMovie)
 

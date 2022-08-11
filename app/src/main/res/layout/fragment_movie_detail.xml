@@ -7,15 +7,42 @@
     tools:context=".presenter.fragments.MovieDetailFragment">
 
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/movie_image"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_movie_details"
         android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:contentDescription="@string/img_movie"
-        android:scaleType="centerCrop"
-        android:src="@drawable/uncharted"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        app:shimmer_auto_start="true">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:background="@color/light_grey"
+            android:contentDescription="@string/img_movie"
+            android:scaleType="centerCrop"
+            android:src="@drawable/uncharted"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/vote_average"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/movie_vote_average"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shimmer_movie_details" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/image_back"
@@ -62,21 +89,6 @@
         app:layout_constraintStart_toEndOf="@+id/vote_average"
         app:layout_constraintTop_toBottomOf="@id/text_movie_title_details" />
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/vote_average"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="@string/movie_vote_average"
-        android:fontFamily="@font/roboto_light"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

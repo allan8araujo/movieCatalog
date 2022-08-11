@@ -5,24 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    app:cardPreventCornerOverlap="true"
-    >
+    app:cardPreventCornerOverlap="true">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:shimmer_auto_start="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="true">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:background="#1E000000"
             android:id="@+id/image_movie"
             android:layout_width="wrap_content"
             android:layout_height="192dp"
+            android:background="@color/light_grey"
             android:scaleType="centerCrop"
             android:src="@drawable/uncharted"
             app:layout_constraintEnd_toEndOf="parent"
