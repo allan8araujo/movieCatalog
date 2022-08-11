@@ -1,6 +1,5 @@
 package com.example.appfilmecatalogo.presenter.viewmodel.Movie
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.abstractions.models.Lives
 import com.example.abstractions.models.PopularWeeklyFilms
@@ -72,11 +71,9 @@ class MovieListViewModel(
             }
             is MovieResult.Sucess -> {
                 setMovieSelected(movieresult.data, movieId)
-                Log.d("online", "ta on")
             }
             is MovieResult.Error -> {
                 setMovieSelected(Lives(results = allRecordedMovies?.value), movieId)
-                Log.d("offline", "ta off")
             }
             else -> {}
         }
@@ -89,7 +86,6 @@ class MovieListViewModel(
         mutableSelectedMovie.value = movieResult?.results?.find { PopularWeeklyFilms ->
             PopularWeeklyFilms.id == movieId
         }
-        mutableSelectedMovie.value?.vote_average =
-            "%,.2f".format(mutableSelectedMovie.value?.vote_average).toFloat()
+        mutableSelectedMovie.value?.vote_average.toString().format("%.2f")
     }
 }
