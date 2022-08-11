@@ -26,8 +26,7 @@ original available on https://github.com/brunoluizcs/everis-becamobile-android
   
   ## Gif about the app flow
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/77680596/177208413-df68cf06-1b9e-44f2-8933-ab66a061a265.gif" width="30%" height="30%"/>             
-  <img src="https://user-images.githubusercontent.com/77680596/177208426-1352e00b-397a-4fcb-aee0-273f7d6a6e4f.gif" width="30%" height="30%"/>
+  <video muted="muted" src="https://user-images.githubusercontent.com/77680596/184209046-e8ba0bda-7d24-4804-8020-fe973524886c.mp4" width="30%" height="30%"/>   
 </p>
 
 # Libraries
