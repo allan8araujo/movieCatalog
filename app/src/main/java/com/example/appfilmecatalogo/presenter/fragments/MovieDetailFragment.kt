@@ -2,7 +2,6 @@ package com.example.appfilmecatalogo.presenter.fragments
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
-import com.example.appfilmecatalogo.presenter.adapters.ImageDetailListener
+import com.example.appfilmecatalogo.presenter.helpers.ImageDetailListener
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 

@@ -34,7 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text_movie_title_details"
         android:layout_width="0dp"

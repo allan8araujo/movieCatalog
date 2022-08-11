@@ -5,18 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    app:cardPreventCornerOverlap="true">
+    app:cardPreventCornerOverlap="true"
+    >
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/image_movie"
-        android:layout_width="wrap_content"
-        android:layout_height="192dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/uncharted"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shimmer_auto_start="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/rounded_image_style" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:background="#1E000000"
+            android:id="@+id/image_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="192dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/uncharted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/rounded_image_style" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text_movie_title"
@@ -30,7 +44,7 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/image_movie"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_movie"
         tools:text="teste" />
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/pb_loading_"
+<animated-rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/loading_black"
     android:pivotX="50%"
-    android:pivotY="50%"></animated-rotate>
+    android:pivotY="50%" />

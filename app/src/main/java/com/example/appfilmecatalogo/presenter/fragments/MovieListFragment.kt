@@ -7,16 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.abstractions.models.Lives
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.data.MovieRepository
 import com.example.appfilmecatalogo.databinding.FragmentListBinding
 import com.example.appfilmecatalogo.domain.utils.FilterTypes
 import com.example.appfilmecatalogo.domain.utils.MovieResult
-import com.example.appfilmecatalogo.presenter.adapters.MovieItemAdapter
+import com.example.appfilmecatalogo.presenter.helpers.MovieItemAdapter
 import com.example.appfilmecatalogo.presenter.util.MovieViewModelFactory
-import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieDetailsViewModel
 import com.example.appfilmecatalogo.presenter.viewmodel.Movie.MovieListViewModel
 import com.example.database.MovieDataBase
 import com.example.repository.api.RetrofitInstance

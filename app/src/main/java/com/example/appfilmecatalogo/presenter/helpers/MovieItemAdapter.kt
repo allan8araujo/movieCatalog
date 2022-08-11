@@ -1,15 +1,15 @@
-package com.example.appfilmecatalogo.presenter.adapters
+package com.example.appfilmecatalogo.presenter.helpers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.appfilmecatalogo.R
+import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.databinding.ListMoviesItemBinding
 
 class MovieItemAdapter :
-    ListAdapter<com.example.abstractions.models.PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(
+    ListAdapter<PopularWeeklyFilms, MovieItemAdapter.MovieItemViewHolder>(
         DiffCallBack()
     ) {
 
@@ -26,19 +26,23 @@ class MovieItemAdapter :
     }
 
     class MovieItemViewHolder(
-        private val biding: ListMoviesItemBinding,
+        private val binding: ListMoviesItemBinding,
         private val onClickListener: ((movieId: Int) -> Unit)?,
-    ) : RecyclerView.ViewHolder(biding.root) {
-        fun bind(movie: com.example.abstractions.models.PopularWeeklyFilms) {
-            biding.textMovieTitle.text = movie.title
-            Glide
-                .with(biding.root.context)
-                .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
-                .placeholder(R.drawable.pb_loading__)
-                .centerCrop()
-                .into(biding.imageMovie)
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-            biding.root.setOnClickListener {
+        fun bind(movie: PopularWeeklyFilms) {
+            binding.textMovieTitle.text = movie.title
+            binding.shimmerMovie.showShimmer(true)
+
+            Glide
+                .with(binding.root.context)
+                .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
+                .listener(GlideLoadingListener(binding.shimmerMovie, binding.imageMovie))
+                .centerCrop()
+                .into(binding.imageMovie)
+
+            binding.imageMovie.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            binding.root.setOnClickListener {
                 onClickListener?.invoke(movie.id)
             }
         }

@@ -1,4 +1,4 @@
-package com.example.appfilmecatalogo.presenter.adapters
+package com.example.appfilmecatalogo.presenter.helpers
 
 import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
