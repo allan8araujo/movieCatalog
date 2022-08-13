@@ -36,7 +36,7 @@ class MovieItemAdapter :
 
             Glide
                 .with(binding.root.context)
-                .load("https://image.tmdb.org/t/p/original" + movie.backdrop_path)
+                .load(getBackdropPath(movie))
                 .listener(GlideLoadingListener(binding.shimmerMovie))
                 .centerCrop()
                 .into(binding.imageMovie)
@@ -46,5 +46,8 @@ class MovieItemAdapter :
                 onClickListener?.invoke(movie.id)
             }
         }
+
+        private fun getBackdropPath(movie: PopularWeeklyFilms) =
+            "https://image.tmdb.org/t/p/original" + movie.poster_path
     }
 }
