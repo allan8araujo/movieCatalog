@@ -10,5 +10,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_avaliation">#83C87F</color>
     <color name="red_avaliation">#F69595</color>
+    <color name="heayv_grey">#B0000000</color>
     <color name="light_grey">#4A000000</color>
 </resources>

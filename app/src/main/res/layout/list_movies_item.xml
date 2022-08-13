@@ -14,15 +14,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_base_color="@color/heayv_grey"
+        app:shimmer_highlight_color="@color/light_grey"
         app:shimmer_auto_start="true"
-        app:shimmer_base_alpha="0.6"
+        app:shimmer_colored="true"
+        app:shimmer_base_alpha="0.5"
         >
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_movie"
             android:layout_width="wrap_content"
             android:layout_height="192dp"
-            android:background="@color/white"
+            android:background="@color/heayv_grey"
             android:scaleType="centerCrop"
             android:src="@drawable/uncharted"
             app:layout_constraintEnd_toEndOf="parent"

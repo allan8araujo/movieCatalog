@@ -20,11 +20,15 @@
             android:id="@+id/movie_image"
             android:layout_width="match_parent"
             android:layout_height="256dp"
-            android:background="@color/light_grey"
             android:contentDescription="@string/img_movie"
             android:scaleType="centerCrop"
             android:src="@drawable/uncharted"
             app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_auto_start="true"
+            app:shimmer_base_alpha="0.5"
+            app:shimmer_base_color="@color/heayv_grey"
+            app:shimmer_colored="true"
+            app:shimmer_highlight_color="@color/light_grey"
             tools:layout_editor_absoluteX="16dp" />
 
     </com.facebook.shimmer.ShimmerFrameLayout>
