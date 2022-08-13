@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.abstractions.models.PopularWeeklyFilms
 import com.example.appfilmecatalogo.R
 import com.example.appfilmecatalogo.databinding.FragmentMovieDetailBinding
 import com.example.appfilmecatalogo.presenter.helpers.ImageDetailListener
@@ -48,14 +49,17 @@ class MovieDetailFragment : Fragment() {
             binding.shimmerMovieDetails.showShimmer(true)
 
             Glide.with(binding.root.context)
-                .load("https://image.tmdb.org/t/p/original" + movieSelected?.poster_path)
+                .load(getPosterLink(movieSelected))
                 //.placeholder(R.drawable.loading_details)
                 .centerCrop()
                 .listener(ImageDetailListener(binding.shimmerMovieDetails, movieDetailsViewModel))
                 .into(binding.movieImage)
-
+            //Todo add fun here
             val overview = movieSelected?.overview
             binding.movieDescription.text = overview
         }
     }
+
+    private fun getPosterLink(movieSelected: PopularWeeklyFilms?) =
+        "https://image.tmdb.org/t/p/original" + movieSelected?.backdrop_path
 }
