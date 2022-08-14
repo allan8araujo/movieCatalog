@@ -28,7 +28,7 @@ mvvm, clean achitecture e jetpack-c.pdf
 
 <br><br>  
   <h2 align="center">
-    splash screen and trending movies list:
+    Splash screen and trending movies list:
      <br><br>
     <image src="https://user-images.githubusercontent.com/77680596/184555502-8d209f8e-917c-4276-b1e2-02f75627387a.png" width="25%" height="25%"/>   
     <image src="https://user-images.githubusercontent.com/77680596/184555516-44275545-6274-423e-af56-d8648e7ec8ef.png" width="25%" height="25%"/>   
