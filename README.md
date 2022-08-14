@@ -1,32 +1,32 @@
-# Trending Movies
+<h1 align="center">
+  Trending movies app
+</h1>
 
 original available on https://github.com/brunoluizcs/everis-becamobile-android
-
+<br><br>
 <h2 align="center">
   Description 
 </h2>
-  Was used concepts of viewBind, Adapter, holder and other tools to maintain interfaces.
-  Calls to api made via: https://api.themoviedb.org/ were made with retrofit and images loaded with Glide.
-  The construction and implementation of the design pattern was used in the model Moldel, View and view-Model(MVVM).
-  
-  Application made in order to list the hot movies of the week and list the details when selecting one of them.
-  
-  
+Was used concepts of viewBind, Adapter, holder and other tools to maintain interfaces.
+Calls to api made via: https://api.themoviedb.org/ were made with retrofit and images loaded with Glide.
+The construction and implementation of the design pattern was used in the model Moldel, View and view-Model(MVVM).
+Application made in order to list the hot movies of the week and list the details when selecting one of them.
+
+<br><br>
   <h2 align="center">
-   Some documentations: 
+    Some documentations: 
   </h2>
-  </h2>
-  Sugestion design for
+Sugestion design for
   <a href="https://github.com/allan8araujo/everis-becamobile-android/files/8880590/Trending.Movies.pdf">
-   figma
+    figma
   </a>
-  <br><br>
-  Pdf referente às mudanças do padrão arquitetural:
-  <a href="https://github.com/allan8araujo/everis-becamobile-android/files/8679150/mvvm.clean.achitecture.e.jetpack-c.pdf">
-  mvvm, clean achitecture e jetpack-c.pdf
-  </a>
-  
-   
+<br><br>
+Pdf referente às mudanças do padrão arquitetural:
+<a href="https://github.com/allan8araujo/everis-becamobile-android/files/8679150/mvvm.clean.achitecture.e.jetpack-c.pdf">
+mvvm, clean achitecture e jetpack-c.pdf
+</a>
+
+<br><br>  
   <h2 align="center">
     splash screen and trending movies list:
      <br><br>
