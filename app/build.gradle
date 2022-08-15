@@ -53,14 +53,13 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     //lifecycle: ViewModel & runtime:ViewModelScope
-    implementation 'androidx.fragment:fragment-ktx:1.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.2'
     implementation "androidx.activity:activity-ktx:1.5.1"
 
     def view_model_version = "2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$view_model_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$view_model_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$view_model_version"
-
 
 
     //Glide
