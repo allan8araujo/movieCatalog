@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@string/hey_we_re_still_opening_wait_a_bit"
+    tools:context=".presenter.SplashScreenActivity">
+
+    <TextView
+        android:id="@+id/text_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/poppins_extralight"
+        android:shadowColor="@color/black"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="15"
+        android:text="@string/movies"
+        android:textColor="@color/white"
+        android:textSize="44sp"
+        app:layout_constraintBottom_toBottomOf="@+id/animation_tap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_tap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent="0.4"
+        app:lottie_rawRes="@raw/tab_burster"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-308dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_cine"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/animation_tap"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/animation_tap"
+        app:layout_constraintWidth_percent="0.4"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/cinema_clap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

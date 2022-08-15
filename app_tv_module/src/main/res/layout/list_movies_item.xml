@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardPreventCornerOverlap="true">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="true"
+        app:shimmer_base_alpha="0.6"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="192dp"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/uncharted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/rounded_image_style" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#99000000"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center"
+        android:hint="@string/texto_vazio"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_movie"
+        tools:text="teste" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
